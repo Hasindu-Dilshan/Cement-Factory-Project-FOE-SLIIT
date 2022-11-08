@@ -6,7 +6,7 @@
 
 class Transport : public Department{
 private:
-	Transferable* transferableArray;
+	Transferable* transferables;
 	static int transferableCount;
 
 public:

@@ -40,9 +40,9 @@ int main() {
   	workerStatementDepartment.addWorker("Manula", "Temporary", 171, 9, 2500, 11, 1100);
 
 	/* Transport Department affairs */
-	transportDepartment.addTransferable("Staff_Transport",1200, 12,800);
-	transportDepartment.addTransferable("Raw_Material_Transport",1800,6,900);
-	transportDepartment.addTransferable("End_Product_Transport",2200,8,1000);
+	transportDepartment.addTransferable("Staff Transport",1200, 12,800);
+	transportDepartment.addTransferable("Raw Material Transport",1800,6,900);
+	transportDepartment.addTransferable("End Product Transport",2200,8,1000);
 
 
 	string decorator = "--------------------";

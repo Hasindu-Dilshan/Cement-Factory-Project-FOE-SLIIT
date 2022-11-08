@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Transport* transferableArray[maxMemberCount];
+Transferable* transferableArray[maxMemberCount];
 
 // Initialize transferable count
 int Transport::transferableCount = 0;
