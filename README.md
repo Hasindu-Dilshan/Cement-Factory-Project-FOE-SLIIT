@@ -2,7 +2,7 @@
 
 ME4550 - Sustainability Management of INSEE Cement Factory
 
-```c++
+```bash
 g++ main.cpp EndProduct.cpp -o main
 
 ./main
