@@ -13,7 +13,7 @@ End_Production::End_Production(){
 }
 
 // Overloaded Constructor
-End_Production::End_Production(string productType, float cost, float price, float chemicalCombinationSo3, float chemicalCombinationChloride, int prodQuantity, int reqProdQuantity, int stockDuration) {
+End_Production::End_Production(string productType, float cost, float price, float chemicalCombinationSo3, float chemicalCombinationChloride, int prodQuantity, int reqProdQuantity, int stockDuration) : Department("End Production Department"){
 	this->productType = productType;
 	this->cost = cost;
 	this->price = price;
@@ -28,7 +28,6 @@ End_Production::End_Production(string productType, float cost, float price, floa
 
 // Destructor
 End_Production::~End_Production(){
-	cout << "Department Object Destroyed Successfully!" << endl;
 }
 
 // Increment object count after each object creation

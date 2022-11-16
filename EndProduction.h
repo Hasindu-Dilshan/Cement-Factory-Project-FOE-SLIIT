@@ -1,7 +1,9 @@
-#include <string>
-using namespace std;
+#pragma once
 
-class End_Production {
+#include <string>
+#include "Department.h"
+
+class End_Production : public Department{
 private:
 	string productType;
 	float cost;
