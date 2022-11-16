@@ -1,19 +1,17 @@
-#include "EndProduction.h"
+#include "Product.h"
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-// Initialize object count
-int End_Production::objectCount = 0;
-
 // Default Constructor
-End_Production::End_Production(){
+Product::Product(){
 
 }
 
 // Overloaded Constructor
-End_Production::End_Production(string productType, float cost, float price, float chemicalCombinationSo3, float chemicalCombinationChloride, int prodQuantity, int reqProdQuantity, int stockDuration) : Department("End Production Department"){
+Product::Product(int productID, string productType, float cost, float price, float chemicalCombinationSo3, float chemicalCombinationChloride, int prodQuantity, int reqProdQuantity, int stockDuration){
+	this->productID = productID;
 	this->productType = productType;
 	this->cost = cost;
 	this->price = price;
@@ -22,28 +20,22 @@ End_Production::End_Production(string productType, float cost, float price, floa
 	this->prodQuantity = prodQuantity;
 	this->reqProdQuantity = reqProdQuantity;
 	this->stockDuration = stockDuration;
-
-	countObject();
 }
 
 // Destructor
-End_Production::~End_Production(){
-}
-
-// Increment object count after each object creation
-void End_Production::countObject() {
-	objectCount++;
+Product::~Product(){
+	cout << "Product Removed Successfully!" << endl;
 }
 
 // Callculate Profit
-void End_Production::calcProfit() {
+void Product::calcProfit() {
 	float profit = prodQuantity * (price - cost);
 
 	cout << "Profit: Rs. " << profit << endl;
 }
 
 // Calculate Demand
-void End_Production::calcDemand() {
+void Product::calcDemand() {
 	float demand = prodQuantity - reqProdQuantity;
 
 	cout << "No. of products produced than the demand: " << demand << endl
@@ -51,7 +43,7 @@ void End_Production::calcDemand() {
 }
 
 // Display Product Details
-void End_Production::displayProdDetails(){
+void Product::displayProdDetails(){
 	cout << "Product: " <<  productType << endl;
 	cout << "Chemical Combination SO3: " <<  chemicalCombinationSo3 <<"%"<< endl;
 	cout << "Chemical Combination Chloride: " <<  chemicalCombinationChloride <<"%"<< endl;
@@ -64,56 +56,53 @@ void End_Production::displayProdDetails(){
 
 
 // Getters
-string End_Production::getProductType(){
+string Product::getProductType(){
 	return productType;
 }
-float End_Production::getCost(){
+float Product::getCost(){
 	return cost;
 }
-float End_Production::getPrice(){
+float Product::getPrice(){
 	return price;
 }
-float End_Production::getChemicalCombinationSo3(){
+float Product::getChemicalCombinationSo3(){
 	return chemicalCombinationSo3; 
 }
-float End_Production::getChemicalCombinationChloride(){
+float Product::getChemicalCombinationChloride(){
 	return chemicalCombinationChloride; 
 }
-int End_Production::getProdQuantity(){
+int Product::getProdQuantity(){
 	return prodQuantity;
 }
-int End_Production::getReqProdQuantity(){
+int Product::getReqProdQuantity(){
 	return reqProdQuantity;
 }
-int End_Production::getStockDuration(){
+int Product::getStockDuration(){
 	return stockDuration;
-}
-int End_Production::getObjectCount() { 
-	return objectCount; 
 }
 
 // Setters
-void End_Production::setProductType(string productType) {
+void Product::setProductType(string productType) {
 	this->productType = productType;
 }
-void End_Production::setCost(float cost){
+void Product::setCost(float cost){
 	this->cost = cost;
 }
-void End_Production::setPrice(float price){
+void Product::setPrice(float price){
 	this->price = price;
 }
-void End_Production::setChemicalCombinationSo3(float chemicalCombinationSo3){
+void Product::setChemicalCombinationSo3(float chemicalCombinationSo3){
 	this->chemicalCombinationSo3 = chemicalCombinationSo3;
 }
-void End_Production::setChemicalCombinationChloride(float chemicalCombinationChloride){
+void Product::setChemicalCombinationChloride(float chemicalCombinationChloride){
 	this->chemicalCombinationChloride = chemicalCombinationChloride;
 }
-void End_Production::setProdQuantity(int prodQuantity){
+void Product::setProdQuantity(int prodQuantity){
 	this->prodQuantity = prodQuantity;
 }
-void End_Production::setReqProdQuantity(int reqProdQuantity){
+void Product::setReqProdQuantity(int reqProdQuantity){
 	this->reqProdQuantity = reqProdQuantity;
 }
-void End_Production::setStockDuration(int stockDuration){
+void Product::setStockDuration(int stockDuration){
 	this->stockDuration = stockDuration;
 }

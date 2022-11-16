@@ -3,6 +3,8 @@
 #include <string>
 using namespace std;
 
+const int maxMemberCount = 50;
+
 class Department{
 private:
 	static int idCount;

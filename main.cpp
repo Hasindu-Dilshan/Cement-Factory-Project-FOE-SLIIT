@@ -1,9 +1,10 @@
-#include "EndProduction.h"
+#include "End_Production.h"
 #include <iostream>
 #include <string>
 using namespace std;
 
 int main() {
+	/*
 	End_Production prod1("INSEE Sanstha", 1000, 1500, 3, 0.08, 400, 375, 6);
 	End_Production prod2("INSEE Mahaweli Marine Plus", 800, 1100, 3, 0.08, 700, 700, 4);
 	End_Production prod3("INSEE MAHAWELI MARINE", 1200, 1800, 2.5, 0.078, 650, 645, 6);
@@ -15,4 +16,5 @@ int main() {
 	prod4.displayProdDetails();
 
 	cout << "No. of Cement Types: " << End_Production::getObjectCount() << endl << endl;
+	*/
 }
