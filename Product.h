@@ -1,10 +1,13 @@
 #pragma once
 
 #include <string>
-#include "Department.h"
+#include <iostream>
 
-class End_Production : public Department{
+using namespace std;
+
+class Product {
 private:
+	int productID;
 	string productType;
 	float cost;
 	float price;
@@ -14,16 +17,13 @@ private:
 	int reqProdQuantity;
 	int stockDuration;
 
-	static int objectCount;
-
 public:
-	End_Production();
+	Product();
 	
-	End_Production(string productType, float cost, float price, float chemicalCombinationSo3, float chemicalCombinationChloride, int prodQuantity, int reqProdQuantity, int stockDuration);
+	Product(int productID, string productType, float cost, float price, float chemicalCombinationSo3, float chemicalCombinationChloride, int prodQuantity, int reqProdQuantity, int stockDuration);
 		 
-	~End_Production();
+	~Product();
 
-	void countObject();
 	void calcProfit();
 	void calcDemand();
 	void displayProdDetails();
@@ -39,7 +39,6 @@ public:
 	int getProdQuantity();
 	int getReqProdQuantity();
 	int getStockDuration();
-	static int getObjectCount();
 
 	// Setters
 	void setProductType(string productType);
