@@ -4,19 +4,14 @@
 
 using namespace std;
 
-Product** productArray = new Product*[maxMemberCount];
+Product* productArray[maxMemberCount];
 
 // Initialize product count
 int End_Production::productCount = 0;
 
-// Default Constructor
-End_Production::End_Production(){
-	
-}
-
 // Destructor
 End_Production::~End_Production(){
-
+	// cout << "Department id:" << this->id << " name: " << this->depName << " was destroyed!" << endl; 
 }
 
 // Increment object count after each object creation
@@ -27,7 +22,7 @@ void End_Production::countProduct() {
 void End_Production::addProduct(string productType, float cost, float price, float chemicalCombinationSo3, float chemicalCombinationChloride, int prodQuantity, int reqProdQuantity, int stockDuration) {
 
 	if(productCount < maxMemberCount) {
-		Product[productCount] = new Product(productCount, productType, cost, price, chemicalCombinationSo3, chemicalCombinationChloride, prodQuantity, reqProdQuantity, stockDuration);
+		productArray[productCount] = new Product(productCount, productType, cost, price, chemicalCombinationSo3, chemicalCombinationChloride, prodQuantity, reqProdQuantity, stockDuration);
 
 		countProduct();
 	}
@@ -38,9 +33,19 @@ void End_Production::addProduct(string productType, float cost, float price, flo
 }
 
 void End_Production::removeProduct(int productID){
-	delete Product[productID];
+	delete productArray[productID];
+	productArray[productID] = nullptr;
 }
 
+void End_Production::getProduct(int productID) {
+	if(productArray[productID] != nullptr){
+		productArray[productID]->displayProdDetails();
+	}
+	else {
+		cout << "Product not available!" << endl << endl;
+	}
+		
+}
 // Getters
 int End_Production::getProductCount() { 
 	return productCount; 

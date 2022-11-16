@@ -15,7 +15,7 @@ protected:
 
 public:
 	Department();
-	Department(string name);
+	Department(string depName);
 		 
 	~Department();
 

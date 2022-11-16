@@ -24,7 +24,7 @@ Product::Product(int productID, string productType, float cost, float price, flo
 
 // Destructor
 Product::~Product(){
-	cout << "Product Removed Successfully!" << endl;
+	cout << "Product id:" << productID << " Removed Successfully!" << endl;
 }
 
 // Callculate Profit
