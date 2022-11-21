@@ -2,7 +2,7 @@
 
 #include <string>
 #include "Department.hpp"
-#include "Product.h"
+#include "Product.hpp"
 
 class End_Production : public Department{
 private:
