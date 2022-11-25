@@ -1,4 +1,6 @@
-#include "End_Production.hpp"
+#pragma once
+
+#include "../src/End_Production.hpp"
 #include <iostream>
 #include <string>
 using namespace std;
