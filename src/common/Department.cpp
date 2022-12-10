@@ -1,4 +1,4 @@
-#include "Department.h"
+#include "Department.hpp"
 #include <iostream>
 #include <string>
 

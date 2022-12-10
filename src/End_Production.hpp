@@ -1,8 +1,8 @@
 #pragma once
 
 #include <string>
-#include "Department.h"
-#include "Product.h"
+#include "common/Department.hpp"
+#include "Product.hpp"
 
 class End_Production : public Department{
 private:

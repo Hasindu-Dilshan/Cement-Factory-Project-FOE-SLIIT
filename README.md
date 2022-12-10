@@ -1,10 +1,8 @@
-### ME 4550 : Object Oriented Programming
+# ME 4550 : Object Oriented Programming
 
 ME4550 - Sustainability Management of INSEE Cement Factory
 
 ```bash
-g++ *.cpp -o main
+make
 
-./main
-```
-
+test/main.out
