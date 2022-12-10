@@ -3,8 +3,10 @@
 ME4550 - Sustainability Management of INSEE Cement Factory
 
 ```bash
-g++ *.cpp -o main
+g++ src/*/*.cpp src/*.cpp test/main.cpp -o main.out
 
-./main
+./main.out
 ```
+### Note:
 
+*.out : excluded from .gitignore

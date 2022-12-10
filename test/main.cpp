@@ -1,5 +1,3 @@
-#pragma once
-
 #include "../src/End_Production.hpp"
 #include <iostream>
 #include <string>
