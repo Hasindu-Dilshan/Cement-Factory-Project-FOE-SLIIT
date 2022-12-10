@@ -9,4 +9,4 @@ g++ src/*/*.cpp src/*.cpp test/main.cpp -o main.out
 ```
 ### Note:
 
-*.out : excluded from .gitignore
+*.out : excluded using .gitignore
