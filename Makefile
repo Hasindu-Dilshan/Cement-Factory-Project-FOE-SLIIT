@@ -14,4 +14,4 @@ main.o: test/main.cpp
 	g++ -c test/main.cpp
 
 clean: 
-	rm src/common/Department.o src/*.o test/*.o test/main.out
+	rm src/common/Department.o src/*.o test/main.o test/main.out
