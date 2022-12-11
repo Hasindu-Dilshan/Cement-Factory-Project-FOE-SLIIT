@@ -1,7 +1,7 @@
 #pragma once
 
 #include <string>
-#include "common/Department.hpp"
+#include "../common/Department.hpp"
 #include "Product.hpp"
 
 class End_Production : public Department{
