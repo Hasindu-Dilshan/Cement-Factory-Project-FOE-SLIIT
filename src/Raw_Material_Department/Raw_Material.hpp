@@ -18,7 +18,7 @@ public:
 
 	void countMaterial();
 
-	void addMaterial(string mater,string qulit, float co, int quint, int safe, int avai, int order, int st_D);
+	void addMaterial(string materialType, string materialQulaity, float cost, int suppliedQuantity, int safetystock, int availableStock, int orderdStock, int stockDuration);
 
 	void removeMaterial(int materialID);
 

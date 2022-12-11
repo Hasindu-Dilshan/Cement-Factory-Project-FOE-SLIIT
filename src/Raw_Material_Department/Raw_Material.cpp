@@ -9,7 +9,7 @@ Material* materialArray[maxMemberCount];
 int Raw_Material::materialCount = 0;
 
 Raw_Material::~Raw_Material(){ 
-   
+	// cout << "[+] Department id:" << this->id << " name: " << this->depName << " was destroyed!" << endl; 
 }
 
 void Raw_Material::countMaterial(){ 
@@ -24,7 +24,7 @@ void Raw_Material::addMaterial(string materialType, string materialQulaity, floa
 		countMaterial();
 	}
 	else {
-		cout << "Department is already full!" << endl;
+		cout << "[-] Department is already full!" << endl;
 	}
 
 }
@@ -37,9 +37,10 @@ void Raw_Material::removeMaterial(int productID){
 void Raw_Material::getMaterial(int productID) {
 	if(materialArray[productID] != nullptr){
 		materialArray[productID]->displayProdDetails();
+		cout << "--------------------------------------------------------------------" << endl << endl;
 	}
 	else {
-		cout << "Product not available!" << endl << endl;
+		cout << "[-] Requested material is not available!" << endl << endl;
 	}
 		
 }

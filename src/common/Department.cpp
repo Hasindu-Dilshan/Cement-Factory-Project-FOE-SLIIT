@@ -20,12 +20,12 @@ Department::Department(string depName) {
 	this->id = idCount;
 	this->depName = depName;
 	
-	cout << "Department id:" << this->id << " name: " << this->depName << " was created successfully!" << endl << endl; 
+	cout << "[+] Department id:" << this->id << " " << this->depName << " was created successfully!" << endl << endl; 
 }
 
 // Destructor
 Department::~Department() {
-	cout << "Department id:" << this->id << " name: " << this->depName << " was destroyed!" << endl << endl; 
+	cout << "[+] Department id:" << this->id << " " << this->depName << " was destroyed!" << endl << endl; 
 }
 
 // Increment department count after each object creation
