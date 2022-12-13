@@ -1,15 +1,16 @@
 #include "../src/End_Production_Department/End_Production.hpp"
 #include "../src/Raw_Material_Department/Raw_Material.hpp"
+#include "../src/Worker_Statement_Department/Worker_Statement.hpp"
 #include <iostream>
 #include <string>
 using namespace std;
 
-string decorate(string decorator, bool startEnd, string text) {
-	if(startEnd) {
+string decorate(string decorator, bool start, string text) {
+	if(start) {
 		return decorator + "<" + text + ">" + decorator;
 	}
 	else {
-		return decorator + "</" + text + ">" + decorator;
+		return decorator + "</" + text + ">" + decorator + "\n";
 	}
 }
 
@@ -17,7 +18,8 @@ int main() {
 
 	/* Make Department Objects */
 	End_Production endProductionDepartment;
-	Raw_Material rawMaterialDepartment; 
+	Raw_Material rawMaterialDepartment;
+	Worker_Statement workerStatementDepartment;
 
 	/* End Production Department affairs */
 	endProductionDepartment.addProduct("INSEE Sanstha", 1000, 1500, 3, 0.08, 400, 375, 6);
@@ -30,6 +32,10 @@ int main() {
 	rawMaterialDepartment.addMaterial("Sulfur trioxide", "A Grade", 100000, 6, 11, 3, 4, 1);
 	rawMaterialDepartment.addMaterial("Flyash", "B Grade", 2000000, 20, 5, 25, 10, 2);
 	rawMaterialDepartment.addMaterial("Cole", "C Grade", 3200000, 8000, 6000, 3000, 20000, 6);
+
+	/* Worker Statement affairs */
+	workerStatementDepartment.addWorker("Kalindu", "Permanent", 160, 8, 3000, 9, 1300);
+  	workerStatementDepartment.addWorker("Manula", "Temporary", 171, 9, 2500, 11, 1100);
 
 	string decorator = "--------------------";
 
@@ -44,7 +50,7 @@ int main() {
 	endProductionDepartment.getProduct(0);
 	endProductionDepartment.getProduct(1);
 
-	cout << decorate(decorator, false, endProductionDepartment.getName()) << endl << endl << endl;
+	cout << decorate(decorator, false, endProductionDepartment.getName()) << endl << endl;
 
 	/* Show Raw Materials Department affairs */
 	cout << decorate(decorator, true, rawMaterialDepartment.getName()) << endl << endl;
@@ -58,6 +64,19 @@ int main() {
 	rawMaterialDepartment.getMaterial(1);
 
 	cout << decorate(decorator, false, rawMaterialDepartment.getName()) << endl << endl;
+
+	/* Show Worker Statement Department affairs */
+	cout << decorate(decorator, true, workerStatementDepartment.getName()) << endl << endl;
+	
+	workerStatementDepartment.getWorker(0);
+	workerStatementDepartment.getWorker(1);
+
+	workerStatementDepartment.removeWorker(0);
+
+	workerStatementDepartment.getWorker(0);
+	workerStatementDepartment.getWorker(1);
+
+	cout << decorate(decorator, false, workerStatementDepartment.getName()) << endl << endl;
 
 	return 0;
 }

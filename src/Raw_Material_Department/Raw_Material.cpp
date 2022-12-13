@@ -36,8 +36,8 @@ void Raw_Material::removeMaterial(int productID){
 
 void Raw_Material::getMaterial(int productID) {
 	if(materialArray[productID] != nullptr){
-		materialArray[productID]->displayProdDetails();
 		cout << "--------------------------------------------------------------------" << endl << endl;
+		materialArray[productID]->displayProdDetails();
 	}
 	else {
 		cout << "[-] Requested material is not available!" << endl << endl;

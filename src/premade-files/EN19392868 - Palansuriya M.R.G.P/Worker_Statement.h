@@ -22,6 +22,8 @@ public:
   ~Worker_Statement();
 
   void countObject();
+
+  
   void calcWorkingdaysforthemonth();
   void calcSalary(); 
   void displayworkerTypeDetails();

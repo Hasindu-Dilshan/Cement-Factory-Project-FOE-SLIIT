@@ -39,8 +39,8 @@ void End_Production::removeProduct(int productID){
 
 void End_Production::getProduct(int productID) {
 	if(productArray[productID] != nullptr){
-		productArray[productID]->displayProdDetails();
 		cout << "--------------------------------------------------------------------" << endl << endl;
+		productArray[productID]->displayProdDetails();
 	}
 	else {
 		cout << "[-] Requested product is not available!" << endl << endl;
