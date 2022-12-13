@@ -4,8 +4,13 @@
 #include <string>
 using namespace std;
 
-string decorate(string decorator, string text) {
-	return decorator + text + decorator;
+string decorate(string decorator, bool startEnd, string text) {
+	if(startEnd) {
+		return decorator + "<" + text + ">" + decorator;
+	}
+	else {
+		return decorator + "</" + text + ">" + decorator;
+	}
 }
 
 int main() {
@@ -28,7 +33,8 @@ int main() {
 
 	string decorator = "--------------------";
 
-	cout << decorate(decorator, "<End Production Department>") << endl << endl;
+	/* Show End Production Department affairs */
+	cout << decorate(decorator, true, endProductionDepartment.getName()) << endl << endl;
 
 	endProductionDepartment.getProduct(0);
 	endProductionDepartment.getProduct(1);
@@ -38,9 +44,10 @@ int main() {
 	endProductionDepartment.getProduct(0);
 	endProductionDepartment.getProduct(1);
 
-	cout << decorate(decorator, "</End Production Department>") << endl << endl << endl << endl;
+	cout << decorate(decorator, false, endProductionDepartment.getName()) << endl << endl << endl;
 
-	cout << decorate(decorator, "<Raw Materials Department>") << endl << endl;
+	/* Show Raw Materials Department affairs */
+	cout << decorate(decorator, true, rawMaterialDepartment.getName()) << endl << endl;
 	
 	rawMaterialDepartment.getMaterial(0);
 	rawMaterialDepartment.getMaterial(1);
@@ -50,8 +57,7 @@ int main() {
 	rawMaterialDepartment.getMaterial(0);
 	rawMaterialDepartment.getMaterial(1);
 
-	cout << decorate(decorator, "</Raw Materials Department>") << endl << endl << endl << endl;
-
+	cout << decorate(decorator, false, rawMaterialDepartment.getName()) << endl << endl;
 
 	return 0;
 }

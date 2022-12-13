@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <iomanip>
+
 #include "Material.hpp"
 
 using namespace std;
@@ -36,13 +38,15 @@ void Material::calcEndstock(){
   cout << "[*] Balance raw material stock: " <<  Endstock << "Ton" << endl;
 }
 void Material::displayProdDetails(){
-	cout << "Material: " <<  materialType << endl;
-	cout << "MaterialQulaity: " <<  materialQulaity << endl;
-	cout << "Cost: " <<  cost<< "Million"<< endl;
-	cout << "SuppliedQuantity: " <<  suppliedQuantity<< endl;
-	cout << "Availablestock quantity: " <<  availableStock <<"Ton"<< endl;
-	cout << "Safety Stock: " <<  safetystock <<"Ton"<< endl;
-	cout << "Availablestock till: " <<  stockDuration <<" months"<< endl << endl;
+	int max_width = 33;
+
+	cout << setw(max_width) << "Material: " <<  materialType << endl;
+	cout << setw(max_width) << "MaterialQulaity: " <<  materialQulaity << endl;
+	cout << setw(max_width) << "Cost: " <<  cost<< "Million"<< endl;
+	cout << setw(max_width) << "SuppliedQuantity: " <<  suppliedQuantity<< endl;
+	cout << setw(max_width) << "Availablestock quantity: " <<  availableStock <<"Ton"<< endl;
+	cout << setw(max_width) << "Safety Stock: " <<  safetystock <<"Ton"<< endl;
+	cout << setw(max_width) << "Availablestock till: " <<  stockDuration <<" months"<< endl << endl;
 
 	calcFullstock();
 	calcEndstock();

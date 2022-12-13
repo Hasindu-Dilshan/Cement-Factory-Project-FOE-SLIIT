@@ -38,7 +38,7 @@ int Department::getId() {
 	return id;
 }
 string Department::getName(){
-	return depName;
+	return depName + " Department";
 }
 
 // Setters
