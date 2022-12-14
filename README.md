@@ -10,3 +10,6 @@ ME4550 - Sustainability Management of INSEE Cement Factory
 3. $ make clean
 
 ```
+
+### Note
+If you use MinGW, use `mingw32-make` instead of `make`
