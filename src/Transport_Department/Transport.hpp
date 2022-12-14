@@ -10,7 +10,7 @@ private:
 	static int transferableCount;
 
 public:
-	Transport() : Department("End Production"){};
+	Transport() : Department("Transport"){};
 		 
 	~Transport();
 
