@@ -43,7 +43,7 @@ void End_Production::getProduct(int productID) {
 		productArray[productID]->displayProdDetails();
 	}
 	else {
-		cout << "[-] Requested product is not available!" << endl << endl;
+		cout << "[-] Requested prouduct is not available!" << endl << endl;
 	}
 		
 }

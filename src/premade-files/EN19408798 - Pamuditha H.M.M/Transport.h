@@ -20,8 +20,7 @@ public:
   Transport(string type, float fuel_I, float AvgfuelCon, float KM);
 
   ~Transport();
-
-void countObject();
+  
 void calcFuelCost();
 void calcOtherCost();
 void calcTotalCost();

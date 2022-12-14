@@ -1,6 +1,7 @@
 #include "../src/End_Production_Department/End_Production.hpp"
 #include "../src/Raw_Material_Department/Raw_Material.hpp"
 #include "../src/Worker_Statement_Department/Worker_Statement.hpp"
+#include "../src/Transport_Department/Transport.hpp"
 #include <iostream>
 #include <string>
 using namespace std;
@@ -20,6 +21,7 @@ int main() {
 	End_Production endProductionDepartment;
 	Raw_Material rawMaterialDepartment;
 	Worker_Statement workerStatementDepartment;
+	Transport transportDepartment;
 
 	/* End Production Department affairs */
 	endProductionDepartment.addProduct("INSEE Sanstha", 1000, 1500, 3, 0.08, 400, 375, 6);
@@ -36,6 +38,12 @@ int main() {
 	/* Worker Statement affairs */
 	workerStatementDepartment.addWorker("Kalindu", "Permanent", 160, 8, 3000, 9, 1300);
   	workerStatementDepartment.addWorker("Manula", "Temporary", 171, 9, 2500, 11, 1100);
+
+	/* Transport Department affairs */
+	transportDepartment.addTransferable("Staff_Transport",1200, 12,800);
+	transportDepartment.addTransferable("Raw_Material_Transport",1800,6,900);
+	transportDepartment.addTransferable("End_Product_Transport",2200,8,1000);
+
 
 	string decorator = "--------------------";
 
@@ -77,6 +85,20 @@ int main() {
 	workerStatementDepartment.getWorker(1);
 
 	cout << decorate(decorator, false, workerStatementDepartment.getName()) << endl << endl;
+
+	/* Show Transport Department affairs */
+	cout << decorate(decorator, true, transportDepartment.getName()) << endl << endl;
+
+	transportDepartment.getTransferable(0);
+	transportDepartment.getTransferable(1);
+
+	transportDepartment.removeTransferable(0);
+
+	transportDepartment.getTransferable(0);
+	transportDepartment.getTransferable(1);
+
+	cout << decorate(decorator, false, transportDepartment.getName()) << endl << endl;
+
 
 	return 0;
 }
