@@ -11,7 +11,7 @@ int End_Production::productCount = 0;
 
 // Destructor
 End_Production::~End_Production(){
-	// cout << "Department id:" << this->id << " name: " << this->depName << " was destroyed!" << endl; 
+	// cout << "[+] Department id:" << this->id << " name: " << this->depName << " was destroyed!" << endl; 
 }
 
 // Increment object count after each object creation
@@ -27,7 +27,7 @@ void End_Production::addProduct(string productType, float cost, float price, flo
 		countProduct();
 	}
 	else {
-		cout << "Department is already full!" << endl;
+		cout << "[-] Department is already full!" << endl;
 	}
 
 }
@@ -39,10 +39,11 @@ void End_Production::removeProduct(int productID){
 
 void End_Production::getProduct(int productID) {
 	if(productArray[productID] != nullptr){
+		cout << "--------------------------------------------------------------------" << endl << endl;
 		productArray[productID]->displayProdDetails();
 	}
 	else {
-		cout << "Product not available!" << endl << endl;
+		cout << "[-] Requested prouduct is not available!" << endl << endl;
 	}
 		
 }

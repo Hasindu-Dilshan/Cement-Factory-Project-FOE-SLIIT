@@ -1,6 +1,8 @@
-#include "Product.hpp"
 #include <iostream>
 #include <string>
+#include <iomanip>
+
+#include "Product.hpp"
 
 using namespace std;
 
@@ -24,30 +26,33 @@ Product::Product(int productID, string productType, float cost, float price, flo
 
 // Destructor
 Product::~Product(){
-	cout << "Product id:" << productID << " Removed Successfully!" << endl;
+	cout << "[+] Product id:" << productID << " " << productType << " Removed Successfully!" << endl << endl;
 }
 
 // Callculate Profit
 void Product::calcProfit() {
 	float profit = prodQuantity * (price - cost);
 
-	cout << "Profit: Rs. " << profit << endl;
+	cout << "[*] Profit: Rs. " << profit << endl;
 }
 
 // Calculate Demand
 void Product::calcDemand() {
 	float demand = prodQuantity - reqProdQuantity;
 
-	cout << "No. of products produced than the demand: " << demand << endl
+	cout << "[*] No. of products produced than the demand: " << demand << endl
 	<< endl;
 }
 
 // Display Product Details
 void Product::displayProdDetails(){
-	cout << "Product: " <<  productType << endl;
-	cout << "Chemical Combination SO3: " <<  chemicalCombinationSo3 <<"%"<< endl;
-	cout << "Chemical Combination Chloride: " <<  chemicalCombinationChloride <<"%"<< endl;
-	cout << "Stock Availability: " <<  stockDuration <<" months"<< endl;
+	int max_width = 33;
+
+	// cout << endl;
+	cout << setw(max_width) << "Product: " <<  productType << endl;
+	cout << setw(max_width) << "Chemical Combination SO3: " <<  chemicalCombinationSo3 <<"%"<< endl;
+	cout << setw(max_width) << "Chemical Combination Chloride: " <<  chemicalCombinationChloride <<"%"<< endl;
+	cout << setw(max_width) << "Stock Availability: " <<  stockDuration <<" months"<< endl << endl;
 	
 	calcProfit();
 	calcDemand();

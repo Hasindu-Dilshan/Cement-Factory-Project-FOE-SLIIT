@@ -3,6 +3,13 @@
 ME4550 - Sustainability Management of INSEE Cement Factory
 
 ```bash
-make
+1. $ make
 
-test/main.out
+2. $ test/main.out
+
+3. $ make clean
+
+```
+
+### Note
+If you use MinGW, use `mingw32-make` instead of `make`
