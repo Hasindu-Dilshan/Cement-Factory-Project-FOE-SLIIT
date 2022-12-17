@@ -5,6 +5,10 @@ ME4550 - Sustainability Management of INSEE Cement Factory
 ```bash
 1. $ git clone https://github.com/Hasindu-Dilshan/Cement-Factory-Project-FOE-SLIIT.git
 
+```
+
+```bash
+
 2. $ make
 
 3. $ test/main.out
