@@ -3,11 +3,13 @@
 ME4550 - Sustainability Management of INSEE Cement Factory
 
 ```bash
-1. $ make
+1. $ git clone https://github.com/Hasindu-Dilshan/Cement-Factory-Project-FOE-SLIIT.git
 
-2. $ test/main.out
+2. $ make
 
-3. $ make clean
+3. $ test/main.out
+
+4. $ make clean
 
 ```
 
