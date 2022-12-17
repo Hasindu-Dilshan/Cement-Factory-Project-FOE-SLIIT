@@ -13,7 +13,6 @@ Worker::Worker() {
 
 // Overloaded Constructor
 Worker::Worker(int workerID, string workerName, string workerType, int workingHoursInTheMonth, int fixWorkingHoursPerDay, int paymentForADay, int overTimeHours, int overTimePaymentPerHour) {
-
 	this -> workerID = workerID;
 	this -> workerName = workerName;
 	this -> workerType = workerType;
@@ -22,7 +21,6 @@ Worker::Worker(int workerID, string workerName, string workerType, int workingHo
 	this -> paymentForADay = paymentForADay;
 	this -> overTimeHours = overTimeHours;
 	this -> overTimePaymentPerHour = overTimePaymentPerHour;
-
 }
 
 // Destructor

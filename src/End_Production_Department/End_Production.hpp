@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+
 #include "../common/Department.hpp"
 #include "Product.hpp"
 
