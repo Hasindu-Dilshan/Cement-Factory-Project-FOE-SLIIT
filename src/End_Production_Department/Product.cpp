@@ -13,15 +13,15 @@ Product::Product(){
 
 // Overloaded Constructor
 Product::Product(int productID, string productType, float cost, float price, float chemicalCombinationSo3, float chemicalCombinationChloride, int prodQuantity, int reqProdQuantity, int stockDuration){
-	this->productID = productID;
-	this->productType = productType;
-	this->cost = cost;
-	this->price = price;
-	this->chemicalCombinationSo3 = chemicalCombinationSo3;
-	this->chemicalCombinationChloride = chemicalCombinationChloride;
-	this->prodQuantity = prodQuantity;
-	this->reqProdQuantity = reqProdQuantity;
-	this->stockDuration = stockDuration;
+	this -> productID = productID;
+	this -> productType = productType;
+	this -> cost = cost;
+	this -> price = price;
+	this -> chemicalCombinationSo3 = chemicalCombinationSo3;
+	this -> chemicalCombinationChloride = chemicalCombinationChloride;
+	this -> prodQuantity = prodQuantity;
+	this -> reqProdQuantity = reqProdQuantity;
+	this -> stockDuration = stockDuration;
 }
 
 // Destructor
@@ -45,7 +45,7 @@ void Product::calcDemand() {
 
 // Display Product Details
 void Product::displayProdDetails(){
-	int max_width = 33;
+	const int max_width = 35;
 
 	// cout << endl;
 	cout << setw(max_width) << "Product: " <<  productType << endl;
@@ -87,26 +87,26 @@ int Product::getStockDuration(){
 
 // Setters
 void Product::setProductType(string productType) {
-	this->productType = productType;
+	this -> productType = productType;
 }
 void Product::setCost(float cost){
-	this->cost = cost;
+	this -> cost = cost;
 }
 void Product::setPrice(float price){
-	this->price = price;
+	this -> price = price;
 }
 void Product::setChemicalCombinationSo3(float chemicalCombinationSo3){
-	this->chemicalCombinationSo3 = chemicalCombinationSo3;
+	this -> chemicalCombinationSo3 = chemicalCombinationSo3;
 }
 void Product::setChemicalCombinationChloride(float chemicalCombinationChloride){
-	this->chemicalCombinationChloride = chemicalCombinationChloride;
+	this -> chemicalCombinationChloride = chemicalCombinationChloride;
 }
 void Product::setProdQuantity(int prodQuantity){
-	this->prodQuantity = prodQuantity;
+	this -> prodQuantity = prodQuantity;
 }
 void Product::setReqProdQuantity(int reqProdQuantity){
-	this->reqProdQuantity = reqProdQuantity;
+	this -> reqProdQuantity = reqProdQuantity;
 }
 void Product::setStockDuration(int stockDuration){
-	this->stockDuration = stockDuration;
+	this -> stockDuration = stockDuration;
 }

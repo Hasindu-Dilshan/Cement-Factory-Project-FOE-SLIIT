@@ -20,7 +20,7 @@ private:
 public:
 	Transferable();
 	
-	Transferable(int transferableID, string type, float fuel_I, float AvgfuelCon, float KM);
+	Transferable(int transferableID, string transferableType, float fuelIssued, float averageFuelConsumption, float kilometersDone);
 		 
 	~Transferable();
 
@@ -29,11 +29,6 @@ public:
 	void calcTotalCost();
 	void calcAvgFuelUsage();
 	void displayTransferableDetails();
-
-	void setcalcFuelCost(float fuel_C);
-	void setcalcOtherCost(float other_C);
-	void setcalcTotalCost(float total_C);
-	void setcalcAvgFuelUsage(float avg_F_U);
 
 	// Getters
 	string getTransferableType();

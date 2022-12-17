@@ -10,16 +10,15 @@ private:
 	static int transferableCount;
 
 public:
-	Transport() : Department("Transport"){};
+	Transport() : Department("Transport") {};
 		 
 	~Transport();
 
 	void countTransferables();
-
-	void addTransferable(string type, float fuel_I, float AvgfuelCon, float KM);
-	void removeTransferable(int transferableID);
-
-	void getTransferable(int transferableID);
-
 	static int getTransferableCount();
+
+	// Manipulate Transferables
+	void addTransferable(string transferableType, float fuelIssued, float averageFuelConsumption, float kilometersDone);
+	void removeTransferable(int transferableID);
+	void getTransferable(int transferableID);
 };
