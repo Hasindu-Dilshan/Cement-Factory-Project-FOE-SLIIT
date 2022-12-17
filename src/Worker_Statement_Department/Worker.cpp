@@ -7,96 +7,97 @@
 using namespace std;
 
 // Default Constructor
-Worker::Worker(){
+Worker::Worker() {
 
 }
 
 // Overloaded Constructor
-Worker::Worker(int workerID, string WorkerName, string WorkerType, int WorkingHoursInTheMonth, int FixWorkingHoursPerDay, int PaymentForADay, int OvertimeHours, int OvertimePaymentPerHour){
-
-	this->workerID = workerID;
-	this-> WorkerName = WorkerName;
-	this-> WorkerType = WorkerType;
-	this-> WorkingHoursInTheMonth = WorkingHoursInTheMonth;
-	this-> FixWorkingHoursPerDay = FixWorkingHoursPerDay;
-	this-> PaymentForADay = PaymentForADay;
-	this-> OvertimeHours = OvertimeHours;
-	this-> OvertimePaymentPerHour = OvertimePaymentPerHour;
-
+Worker::Worker(int workerID, string workerName, string workerType, int workingHoursInTheMonth, int fixWorkingHoursPerDay, int paymentForADay, int overTimeHours, int overTimePaymentPerHour) {
+	this -> workerID = workerID;
+	this -> workerName = workerName;
+	this -> workerType = workerType;
+	this -> workingHoursInTheMonth = workingHoursInTheMonth;
+	this -> fixWorkingHoursPerDay = fixWorkingHoursPerDay;
+	this -> paymentForADay = paymentForADay;
+	this -> overTimeHours = overTimeHours;
+	this -> overTimePaymentPerHour = overTimePaymentPerHour;
 }
 
 // Destructor
-Worker::~Worker(){
-	cout << "[+] Worker id:" << workerID << " " << WorkerName << " Removed Successfully!" << endl << endl;
+Worker::~Worker() {
+	cout << "[+] Worker id:" << workerID << " " << workerName << " Removed Successfully!" << endl << endl;
 }
 
-void Worker::calcWorkingdaysforthemonth(){
-  float workingdays = (WorkingHoursInTheMonth / FixWorkingHoursPerDay);
-  cout << "[*] Working days for the month: " <<  workingdays <<"  days" << endl;  
-} 
-void Worker::calcSalary(){
-  float Salary = ((WorkingHoursInTheMonth/FixWorkingHoursPerDay)*PaymentForADay)+(OvertimeHours*OvertimePaymentPerHour);
-  cout << "[*] Salary: Rs." <<  Salary << " /=" << endl;  
+void Worker::calcWorkingDaysForTheMonth() {
+	float workingDays = ( workingHoursInTheMonth / fixWorkingHoursPerDay );
 
+	cout << "[*] Working days for the month: " <<  workingDays <<"  days" << endl;  
 }
-void Worker::displayworkerTypeDetails(){
-	int max_width = 33;
 
-  cout << setw(max_width) << "Name of the Worker: " <<  WorkerName << endl;
-  cout << setw(max_width) << "Worker Type: " <<   WorkerType << endl;
-  cout << setw(max_width) << "Working Hours in The Month: " << WorkingHoursInTheMonth << " hours" << endl;
-  cout << setw(max_width) << "Fix Working Hours per Day: " << FixWorkingHoursPerDay << " hours" << endl;
-  cout << setw(max_width) << "Payment For A Day: " << "Rs." << PaymentForADay << " /=" << endl;
-  cout << setw(max_width) << "Overtime Hours: " <<  OvertimeHours << " hours" << endl;
-  cout << setw(max_width) << "Overtime Payment per Hour: " << "Rs." <<  OvertimePaymentPerHour << " /=" << endl;
+void Worker::calcSalary() {
+	float salary = (( workingHoursInTheMonth / fixWorkingHoursPerDay ) * paymentForADay ) + ( overTimeHours * overTimePaymentPerHour );
+
+	cout << "[*] Salary: Rs." <<  salary << " /=" << endl;  
+}
+
+void Worker::displayworkerTypeDetails() {
+	const int max_width = 35;
+
+	cout << setw(max_width) << "Name of the Worker: " <<  workerName << endl;
+	cout << setw(max_width) << "Worker Type: " <<  workerType << endl;
+	cout << setw(max_width) << "Working Hours in The Month: " << workingHoursInTheMonth << " hours" << endl;
+	cout << setw(max_width) << "Fix Working Hours per Day: " << fixWorkingHoursPerDay << " hours" << endl;
+	cout << setw(max_width) << "Payment For A Day: " << "Rs." << paymentForADay << " /=" << endl;
+	cout << setw(max_width) << "Overtime Hours: " <<  overTimeHours << " hours" << endl;
+	cout << setw(max_width) << "Overtime Payment per Hour: " << "Rs." <<  overTimePaymentPerHour << " /=" << endl;
 	cout << endl;
   
-  calcWorkingdaysforthemonth();
-  calcSalary();
+	calcWorkingDaysForTheMonth();
+	calcSalary();
 }
 
 //Getters
-string Worker::getWorkerName(){
-  return WorkerName; 
+string Worker::getWorkerName() {
+	return workerName; 
 }
-string Worker::getWorkerType(){
-  return WorkerType; 
+string Worker::getWorkerType() {
+	return workerType; 
 }
-float Worker::getWorkingHoursInTheMonth(){
-  return WorkingHoursInTheMonth; 
+float Worker::getWorkingHoursInTheMonth() {
+	return workingHoursInTheMonth; 
 }
-int Worker::getFixWorkingHoursPerDay(){
-  return FixWorkingHoursPerDay; 
+int Worker::getFixWorkingHoursPerDay() {
+	return fixWorkingHoursPerDay; 
 }
-float Worker::getPaymentForADay(){
-  return PaymentForADay; 
+float Worker::getPaymentForADay() {
+	return paymentForADay; 
 }
-float Worker::getOvertimeHours(){
-  return OvertimeHours; 
+float Worker::getOverTimeHours() {
+	return overTimeHours; 
 }
-float Worker::getOvertimePaymentPerHour(){
-  return OvertimePaymentPerHour; 
+float Worker::getOverTimePaymentPerHour() {
+	return overTimePaymentPerHour; 
 }
 
 // Setters
 void Worker::setWorkerName(string workerName) {
-  this->WorkerName = workerName;
+	this->workerName = workerName;
 }
 void Worker::setWorkerType(string workerType) {
-  this->WorkerType = workerType;
+	this->workerType = workerType;
 }
-void Worker::setWorkingHoursInTheMonth(int WorkingHoursInTheMonth){
-  this->WorkingHoursInTheMonth = WorkingHoursInTheMonth;
+void Worker::setWorkingHoursInTheMonth(int workingHoursInTheMonth) {
+	this->workingHoursInTheMonth = workingHoursInTheMonth;
 }
-void Worker::setFixWorkingHoursPerDay(int fixWorkingHoursPerDay){
-  this->FixWorkingHoursPerDay = fixWorkingHoursPerDay;
+void Worker::setFixWorkingHoursPerDay(int fixWorkingHoursPerDay) {
+	this->fixWorkingHoursPerDay = fixWorkingHoursPerDay;
 }
-void Worker::setPaymentForADay(int paymentForADay){
-  this->PaymentForADay = paymentForADay;
+void Worker::setPaymentForADay(int paymentForADay) {
+	this->paymentForADay = paymentForADay;
 }
-void Worker::setOvertimeHours(int overtimeHours){
-  this->OvertimeHours = overtimeHours;
+void Worker::setOverTimeHours(int overTimeHours) {
+	this->overTimeHours = overTimeHours;
 }
-void Worker::setOvertimePaymentPerHour(int overtimePaymentPerHour){
-  this->OvertimePaymentPerHour = overtimePaymentPerHour;
+void Worker::setOverTimePaymentPerHour(int overTimePaymentPerHour) {
+	this->overTimePaymentPerHour = overTimePaymentPerHour;
 }

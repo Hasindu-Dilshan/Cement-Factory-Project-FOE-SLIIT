@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+
 #include "Transport.hpp"
 
 using namespace std;
@@ -11,7 +12,7 @@ int Transport::transferableCount = 0;
 
 // Destructor
 Transport::~Transport(){
-	// cout << "[+] Department id:" << this->id << " name: " << this->depName << " was destroyed!" << endl; 
+	// Super class destructor is sufficient
 }
 
 // Increment object count after each object creation
@@ -19,10 +20,14 @@ void Transport::countTransferables() {
 	Transport::transferableCount++;
 }
 
-void Transport::addTransferable(string type, float fuel_I, float AvgfuelCon, float KM) {
+int Transport::getTransferableCount() { 
+	return transferableCount; 
+}
+
+void Transport::addTransferable(string transferableType, float fuelIssued, float averageFuelConsumption, float kilometersDone) {
 
 	if(transferableCount < maxMemberCount) {
-		transferableArray[transferableCount] = new Transferable(transferableCount, type, fuel_I,  AvgfuelCon, KM);
+		transferableArray[transferableCount] = new Transferable(transferableCount, transferableType, fuelIssued, averageFuelConsumption, kilometersDone);
 
 		countTransferables();
 	}
@@ -32,7 +37,7 @@ void Transport::addTransferable(string type, float fuel_I, float AvgfuelCon, flo
 
 }
 
-void Transport::removeTransferable(int transferableID){
+void Transport::removeTransferable(int transferableID) {
 	delete transferableArray[transferableID];
 	transferableArray[transferableID] = nullptr;
 }
@@ -40,14 +45,9 @@ void Transport::removeTransferable(int transferableID){
 void Transport::getTransferable(int transferableID) {
 	if(transferableArray[transferableID] != nullptr){
 		cout << "--------------------------------------------------------------------" << endl << endl;
-		transferableArray[transferableID]->displayTransferableDetails();
+		transferableArray[transferableID] -> displayTransferableDetails();
 	}
 	else {
 		cout << "[-] Requested transferable is not available!" << endl << endl;
 	}
-		
-}
-// Getters
-int Transport::getTransferableCount() { 
-	return transferableCount; 
 }

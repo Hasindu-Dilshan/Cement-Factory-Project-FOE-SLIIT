@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+
 #include "../common/Department.hpp"
 #include "Worker.hpp"
 
@@ -10,16 +11,15 @@ private:
 	static int workerCount;
 
 public:
-	Worker_Statement() : Department("Worker Statement"){};
+	Worker_Statement() : Department("Worker Statement") {};
 		 
 	~Worker_Statement();
 
 	void countWorker();
-
-	void addWorker(string name, string worker, int wh, int fx, int dy, int ot, int hr );
-	void removeWorker(int productID);
-
-	void getWorker(int productID);
-
 	static int getWorkerCount();
+
+	// Manipulate Workers
+	void addWorker(string workerName, string workerType, int workingHoursInTheMonth, int fixWorkingHoursPerDay, int paymentForADay, int overtimeHours, int overtimePaymentPerHour);
+	void removeWorker(int productID);
+	void getWorker(int productID);
 };

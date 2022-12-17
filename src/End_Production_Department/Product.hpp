@@ -27,8 +27,6 @@ public:
 	void calcProfit();
 	void calcDemand();
 	void displayProdDetails();
-	void setcalcProfit(float prof);
-	void setcalcDemand(int dem);
 
 	// Getters
 	string getProductType();

@@ -4,4 +4,6 @@
 
 ### Department class must made abstract
 
-### A funtion to show price as formatted text 
+### A funtion to show price as formatted text
+
+### Structure "common constants"
