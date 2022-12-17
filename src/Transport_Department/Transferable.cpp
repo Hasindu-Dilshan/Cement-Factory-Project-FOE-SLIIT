@@ -27,24 +27,27 @@ Transferable::~Transferable(){
 
 void Transferable::calcFuelCost(){
   float fuelCost = (fuelIssued*430);
-  cout<<"Fuel Cost: Rs."<<fuelCost<<endl;
+  cout << "[*] Fuel Cost: Rs." << fuelCost << endl;
 }
 void Transferable::calcOtherCost(){
   float otherCost = (kilometersDone*30);
-  cout<<"Other Cost: Rs."<<otherCost<<endl;
+  cout << "[*] Other Cost: Rs." << otherCost << endl;
 }
 void Transferable::calcTotalCost(){
   float totalCost = (fuelIssued*430)+(kilometersDone*30);
-  cout<<"Total Cost: Rs."<<totalCost<<endl;
+  cout << "[*] Total Cost: Rs." << totalCost << endl;
 }
 void Transferable::calcAvgFuelUsage(){
   float averagefuelUsage = (fuelIssued)-(kilometersDone/averageFuelConsumption);
-  cout<<"Average fuel used (litres): "<<averagefuelUsage<<endl<<endl;
+  cout << "[*] clearAverage fuel used (litres): " << averagefuelUsage << endl << endl;
 }
 void Transferable::displayTransferableDetails(){
-  cout<<"Transferable Catergory : "<< transferableType<<endl;
-  cout<<"Average Fuel Consumption (Km/l) : "<< averageFuelConsumption<<endl;
-  cout<<"Amount of Fuels Issued (litres) : "<<fuelIssued <<endl;
+  int max_width = 35;
+
+  cout << setw(max_width) << "Transferable Catergory : " << transferableType << endl;
+  cout << setw(max_width) << "Average Fuel Consumption (Km/l) : " << averageFuelConsumption << endl;
+  cout << setw(max_width) << "Amount of Fuels Issued (litres) : " << fuelIssued << endl;
+  cout << endl;
  
   calcFuelCost();
   calcOtherCost();
@@ -74,17 +77,17 @@ float Transferable::getKilometersDone(){
 
 //Setters
 void Transferable::setTransferableType(string transferableType){
-  this ->transferableType = transferableType;
+  this -> transferableType = transferableType;
 }
 void Transferable::setFuelIssued(float fuelIssued){
-  this ->fuelIssued = fuelIssued;
+  this -> fuelIssued = fuelIssued;
 }
 void Transferable::setFuelCost(float fuelCost){
-this ->fuelCost = fuelCost;
+  this -> fuelCost = fuelCost;
 }
 void Transferable::setAverageFuelConsumption(float averageFuelConsumption){
-  this ->averageFuelConsumption = averageFuelConsumption;
+  this -> averageFuelConsumption = averageFuelConsumption;
 }
 void Transferable::setKilometersDone(float kilometersDone){
-this -> kilometersDone = kilometersDone;
+  this -> kilometersDone = kilometersDone;
 }

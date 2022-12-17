@@ -12,7 +12,7 @@ Worker::Worker(){
 }
 
 // Overloaded Constructor
-Worker::Worker(int workerID, string orkerName, string WorkerType, int WorkingHoursInTheMonth, int FixWorkingHoursPerDay, int PaymentForADay, int OvertimeHours, int OvertimePaymentPerHour){
+Worker::Worker(int workerID, string WorkerName, string WorkerType, int WorkingHoursInTheMonth, int FixWorkingHoursPerDay, int PaymentForADay, int OvertimeHours, int OvertimePaymentPerHour){
 
 	this->workerID = workerID;
 	this-> WorkerName = WorkerName;
@@ -32,21 +32,24 @@ Worker::~Worker(){
 
 void Worker::calcWorkingdaysforthemonth(){
   float workingdays = (WorkingHoursInTheMonth / FixWorkingHoursPerDay);
-  cout << "Working days for the month: " <<  workingdays <<" days"<< endl<< endl;  
+  cout << "[*] Working days for the month: " <<  workingdays <<"  days" << endl;  
 } 
 void Worker::calcSalary(){
   float Salary = ((WorkingHoursInTheMonth/FixWorkingHoursPerDay)*PaymentForADay)+(OvertimeHours*OvertimePaymentPerHour);
-  cout << "Salary: Rs." <<  Salary <<" /="<< endl << endl<< endl<< endl;  
+  cout << "[*] Salary: Rs." <<  Salary << " /=" << endl;  
 
 }
 void Worker::displayworkerTypeDetails(){
-  cout << "Name of the Worker: " <<  WorkerName << endl<< endl;
-  cout << "Worker Type: " <<   WorkerType << endl;
-  cout << "Working Hours in The Month: " <<  WorkingHoursInTheMonth <<" hours"<< endl;
-  cout << "Fix Working Hours per Day: " <<  FixWorkingHoursPerDay <<" hours"<< endl;
-  cout << "Payment For A Day: " <<"Rs."<<  PaymentForADay <<" /="<< endl;
-  cout << "Overtime Hours: " <<  OvertimeHours <<" hours"<< endl;
-  cout << "Overtime Payment per Hour: " <<"Rs."<<  OvertimePaymentPerHour <<" /="<< endl<< endl;
+	int max_width = 33;
+
+  cout << setw(max_width) << "Name of the Worker: " <<  WorkerName << endl;
+  cout << setw(max_width) << "Worker Type: " <<   WorkerType << endl;
+  cout << setw(max_width) << "Working Hours in The Month: " << WorkingHoursInTheMonth << " hours" << endl;
+  cout << setw(max_width) << "Fix Working Hours per Day: " << FixWorkingHoursPerDay << " hours" << endl;
+  cout << setw(max_width) << "Payment For A Day: " << "Rs." << PaymentForADay << " /=" << endl;
+  cout << setw(max_width) << "Overtime Hours: " <<  OvertimeHours << " hours" << endl;
+  cout << setw(max_width) << "Overtime Payment per Hour: " << "Rs." <<  OvertimePaymentPerHour << " /=" << endl;
+	cout << endl;
   
   calcWorkingdaysforthemonth();
   calcSalary();

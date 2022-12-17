@@ -9,10 +9,10 @@ using namespace std;
 
 string decorate(string decorator, bool start, string text) {
 	if(start) {
-		return decorator + "<" + text + ">" + decorator;
+		return decorator + "< " + text + " >" + decorator;
 	}
 	else {
-		return decorator + "</" + text + ">" + decorator + "\n";
+		return decorator + "< / " + text + " >" + decorator + "\n";
 	}
 }
 
@@ -46,7 +46,7 @@ int main() {
 	transportDepartment.addTransferable("End Product Transport",2200,8,1000);
 
 
-	string decorator = "--------------------";
+	const string decorator = "--------------------";
 
 	/* Show End Production Department affairs */
 	cout << decorate(decorator, true, endProductionDepartment.getName()) << endl << endl;

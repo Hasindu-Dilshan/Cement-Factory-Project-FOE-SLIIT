@@ -31,11 +31,11 @@ Material::~Material(){
 
 void Material::calcFullstock(){
   float Fullstock = availableStock+safetystock;
-  cout << "[*] Fullstock: " <<  Fullstock <<" Ton"<<endl;  
+  cout << "[*] Fullstock: " <<  Fullstock << " Ton" <<endl;  
 }
 void Material::calcEndstock(){
   float Endstock = (availableStock+safetystock)-suppliedQuantity;
-  cout << "[*] Balance raw material stock: " <<  Endstock << "Ton" << endl;
+  cout << "[*] Balance raw material stock: " <<  Endstock << "Ton" << endl << endl;
 }
 void Material::displayProdDetails(){
 	int max_width = 33;
@@ -46,7 +46,8 @@ void Material::displayProdDetails(){
 	cout << setw(max_width) << "SuppliedQuantity: " <<  suppliedQuantity<< endl;
 	cout << setw(max_width) << "Availablestock quantity: " <<  availableStock <<"Ton"<< endl;
 	cout << setw(max_width) << "Safety Stock: " <<  safetystock <<"Ton"<< endl;
-	cout << setw(max_width) << "Availablestock till: " <<  stockDuration <<" months"<< endl << endl;
+	cout << setw(max_width) << "Availablestock till: " <<  stockDuration <<" months"<< endl;
+	cout << endl;
 
 	calcFullstock();
 	calcEndstock();
