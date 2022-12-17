@@ -40,8 +40,7 @@ void Product::calcProfit() {
 void Product::calcDemand() {
 	float demand = prodQuantity - reqProdQuantity;
 
-	cout << "[*] No. of products produced than the demand: " << demand << endl
-	<< endl;
+	cout << "[*] No. of products produced than the demand: " << demand << endl << endl;
 }
 
 // Display Product Details
@@ -50,14 +49,14 @@ void Product::displayProdDetails(){
 
 	// cout << endl;
 	cout << setw(max_width) << "Product: " <<  productType << endl;
-	cout << setw(max_width) << "Chemical Combination SO3: " <<  chemicalCombinationSo3 <<"%"<< endl;
-	cout << setw(max_width) << "Chemical Combination Chloride: " <<  chemicalCombinationChloride <<"%"<< endl;
-	cout << setw(max_width) << "Stock Availability: " <<  stockDuration <<" months"<< endl << endl;
+	cout << setw(max_width) << "Chemical Combination SO3: " <<  chemicalCombinationSo3 << "%" << endl;
+	cout << setw(max_width) << "Chemical Combination Chloride: " <<  chemicalCombinationChloride << "%" << endl;
+	cout << setw(max_width) << "Stock Availability: " <<  stockDuration << " months" << endl;
+	cout << endl;
 	
 	calcProfit();
 	calcDemand();
 }
-
 
 
 // Getters
