@@ -13,7 +13,6 @@ Raw_Material::~Raw_Material() {
 	// Super class destructor is sufficient
 }
 
-
 void Raw_Material::countMaterial() { 
 	materialCount++;
 }
@@ -21,7 +20,6 @@ void Raw_Material::countMaterial() {
 int Raw_Material::getMaterialCount() { 
 	return materialCount; 
 }
-
 
 void Raw_Material::addMaterial(string materialType, string materialQulaity, float cost, int suppliedQuantity, int safetystock, int availableStock, int orderdStock, int stockDuration) {
 	if(materialCount < maxMemberCount) {

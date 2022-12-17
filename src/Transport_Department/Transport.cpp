@@ -15,7 +15,6 @@ Transport::~Transport(){
 	// Super class destructor is sufficient
 }
 
-
 // Increment object count after each object creation
 void Transport::countTransferables() {
 	Transport::transferableCount++;
@@ -24,7 +23,6 @@ void Transport::countTransferables() {
 int Transport::getTransferableCount() { 
 	return transferableCount; 
 }
-
 
 void Transport::addTransferable(string transferableType, float fuelIssued, float averageFuelConsumption, float kilometersDone) {
 

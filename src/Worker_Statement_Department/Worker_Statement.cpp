@@ -15,7 +15,6 @@ Worker_Statement::~Worker_Statement() {
 	// Super class destructor is sufficient
 }
 
-
 // Increment object count after each object creation
 void Worker_Statement::countWorker() {
 	Worker_Statement::workerCount++;
@@ -24,7 +23,6 @@ void Worker_Statement::countWorker() {
 int Worker_Statement::getWorkerCount() {
 	return workerCount;
 }
-
 
 void Worker_Statement::addWorker(string workerName, string workerType, int workingHoursInTheMonth, int fixWorkingHoursPerDay, int paymentForADay, int overtimeHours, int overtimePaymentPerHour) {
 

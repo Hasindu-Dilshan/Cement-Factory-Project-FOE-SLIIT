@@ -47,7 +47,6 @@ void Product::calcDemand() {
 void Product::displayProdDetails(){
 	const int max_width = 35;
 
-	// cout << endl;
 	cout << setw(max_width) << "Product: " <<  productType << endl;
 	cout << setw(max_width) << "Chemical Combination SO3: " <<  chemicalCombinationSo3 << "%" << endl;
 	cout << setw(max_width) << "Chemical Combination Chloride: " <<  chemicalCombinationChloride << "%" << endl;
