@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+
 #include "Transport.hpp"
 
 using namespace std;
@@ -38,7 +39,7 @@ void Transport::addTransferable(string transferableType, float fuelIssued, float
 
 }
 
-void Transport::removeTransferable(int transferableID){
+void Transport::removeTransferable(int transferableID) {
 	delete transferableArray[transferableID];
 	transferableArray[transferableID] = nullptr;
 }
@@ -51,5 +52,4 @@ void Transport::getTransferable(int transferableID) {
 	else {
 		cout << "[-] Requested transferable is not available!" << endl << endl;
 	}
-		
 }

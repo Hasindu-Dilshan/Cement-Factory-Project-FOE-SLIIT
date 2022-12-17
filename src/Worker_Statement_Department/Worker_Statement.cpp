@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+
 #include "Worker_Statement.hpp"
 
 using namespace std;
@@ -38,7 +39,7 @@ void Worker_Statement::addWorker(string workerName, string workerType, int worki
 
 }
 
-void Worker_Statement::removeWorker(int workerID){
+void Worker_Statement::removeWorker(int workerID) {
 	delete workerArray[workerID];
 	workerArray[workerID] = nullptr;
 }
@@ -47,7 +48,7 @@ void Worker_Statement::getWorker(int workerID) {
 	if(workerArray[workerID] != nullptr){
 		cout << "--------------------------------------------------------------------" << endl << endl;
 
-		workerArray[workerID]->displayworkerTypeDetails();
+		workerArray[workerID] -> displayworkerTypeDetails();
 	}
 	else {
 		cout << "[-] Requested product is not available!" << endl << endl;

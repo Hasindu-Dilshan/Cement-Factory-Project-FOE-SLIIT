@@ -23,7 +23,7 @@ public:
 		 
 	~Worker();
 
-	void calcWorkingdaysforthemonth();
+	void calcWorkingDaysForTheMonth();
 	void calcSalary(); 
 	void displayworkerTypeDetails();
 

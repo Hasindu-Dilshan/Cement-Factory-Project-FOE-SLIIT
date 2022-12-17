@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+
 #include "Raw_Material.hpp"
 
 using namespace std;
@@ -13,7 +14,7 @@ Raw_Material::~Raw_Material() {
 }
 
 
-void Raw_Material::countMaterial(){ 
+void Raw_Material::countMaterial() { 
 	materialCount++;
 }
 
@@ -30,10 +31,10 @@ void Raw_Material::addMaterial(string materialType, string materialQulaity, floa
 	}
 	else {
 		cout << "[-] Department is already full!" << endl;
-	}
+	} 
 }
 
-void Raw_Material::removeMaterial(int productID){
+void Raw_Material::removeMaterial(int productID) {
 	delete materialArray[productID];
 	materialArray[productID] = nullptr;
 }

@@ -31,7 +31,7 @@ Product::~Product(){
 
 // Callculate Profit
 void Product::calcProfit() {
-	float profit = prodQuantity * (price - cost);
+	float profit = prodQuantity * ( price - cost );
 
 	cout << "[*] Profit: Rs. " << profit << endl;
 }
