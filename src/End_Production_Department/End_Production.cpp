@@ -70,7 +70,7 @@ const string End_Production::toString()
 
 	for (int productID = 0; productID < productCount; productID++)
 	{
-		all_buffer << End_Production::toString(productID);
+		all_buffer << toString(productID);
 	}
 
 	return all_buffer.str();
