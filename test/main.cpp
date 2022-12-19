@@ -7,16 +7,20 @@
 #include <string>
 using namespace std;
 
-string decorate(string decorator, bool start, string text) {
-	if(start) {
+string decorate(string decorator, bool start, string text)
+{
+	if (start)
+	{
 		return decorator + "< " + text + " >" + decorator;
 	}
-	else {
+	else
+	{
 		return decorator + "< / " + text + " >" + decorator + "\n";
 	}
 }
 
-int main() {
+int main()
+{
 
 	/* Make Department Objects */
 	End_Production endProductionDepartment;
@@ -38,18 +42,18 @@ int main() {
 
 	/* Worker Statement affairs */
 	workerStatementDepartment.addWorker("Kalindu", "Permanent", 160, 8, 3000, 9, 1300);
-  	workerStatementDepartment.addWorker("Manula", "Temporary", 171, 9, 2500, 11, 1100);
+	workerStatementDepartment.addWorker("Manula", "Temporary", 171, 9, 2500, 11, 1100);
 
 	/* Transport Department affairs */
-	transportDepartment.addTransferable("Staff Transport",1200, 12,800);
-	transportDepartment.addTransferable("Raw Material Transport",1800,6,900);
-	transportDepartment.addTransferable("End Product Transport",2200,8,1000);
-
+	transportDepartment.addTransferable("Staff Transport", 1200, 12, 800);
+	transportDepartment.addTransferable("Raw Material Transport", 1800, 6, 900);
+	transportDepartment.addTransferable("End Product Transport", 2200, 8, 1000);
 
 	const string decorator = "--------------------";
 
 	/* Show End Production Department affairs */
-	cout << decorate(decorator, true, endProductionDepartment.getName()) << endl << endl;
+	cout << decorate(decorator, true, endProductionDepartment.getName()) << endl
+		 << endl;
 
 	endProductionDepartment.getProduct(0);
 	endProductionDepartment.getProduct(1);
@@ -59,11 +63,13 @@ int main() {
 	endProductionDepartment.getProduct(0);
 	endProductionDepartment.getProduct(1);
 
-	cout << decorate(decorator, false, endProductionDepartment.getName()) << endl << endl;
+	cout << decorate(decorator, false, endProductionDepartment.getName()) << endl
+		 << endl;
 
 	/* Show Raw Materials Department affairs */
-	cout << decorate(decorator, true, rawMaterialDepartment.getName()) << endl << endl;
-	
+	cout << decorate(decorator, true, rawMaterialDepartment.getName()) << endl
+		 << endl;
+
 	rawMaterialDepartment.getMaterial(0);
 	rawMaterialDepartment.getMaterial(1);
 
@@ -72,11 +78,13 @@ int main() {
 	rawMaterialDepartment.getMaterial(0);
 	rawMaterialDepartment.getMaterial(1);
 
-	cout << decorate(decorator, false, rawMaterialDepartment.getName()) << endl << endl;
+	cout << decorate(decorator, false, rawMaterialDepartment.getName()) << endl
+		 << endl;
 
 	/* Show Worker Statement Department affairs */
-	cout << decorate(decorator, true, workerStatementDepartment.getName()) << endl << endl;
-	
+	cout << decorate(decorator, true, workerStatementDepartment.getName()) << endl
+		 << endl;
+
 	workerStatementDepartment.getWorker(0);
 	workerStatementDepartment.getWorker(1);
 
@@ -85,10 +93,12 @@ int main() {
 	workerStatementDepartment.getWorker(0);
 	workerStatementDepartment.getWorker(1);
 
-	cout << decorate(decorator, false, workerStatementDepartment.getName()) << endl << endl;
+	cout << decorate(decorator, false, workerStatementDepartment.getName()) << endl
+		 << endl;
 
 	/* Show Transport Department affairs */
-	cout << decorate(decorator, true, transportDepartment.getName()) << endl << endl;
+	cout << decorate(decorator, true, transportDepartment.getName()) << endl
+		 << endl;
 
 	transportDepartment.getTransferable(0);
 	transportDepartment.getTransferable(1);
@@ -98,8 +108,8 @@ int main() {
 	transportDepartment.getTransferable(0);
 	transportDepartment.getTransferable(1);
 
-	cout << decorate(decorator, false, transportDepartment.getName()) << endl << endl;
-
+	cout << decorate(decorator, false, transportDepartment.getName()) << endl
+		 << endl;
 
 	return 0;
 }

@@ -7,3 +7,5 @@
 ### A funtion to show price as formatted text
 
 ### Structure "common constants"
+
+### Make an input file validator
