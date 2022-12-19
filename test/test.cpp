@@ -12,7 +12,22 @@
 
 using namespace std;
 
-void read_department(vector<vector<string>> &sub_string_lines, End_Production &depRef);
+void read_department(vector<vector<string>> &sub_string_lines, End_Production &endproduction_dep_ref)
+{
+    for (vector<string> sub_string_line : sub_string_lines)
+    {
+        string productType = sub_string_line.at(0);
+        float cost = stof(sub_string_line.at(1));
+        float price = stof(sub_string_line.at(2));
+        float chemicalCombinationSo3 = stof(sub_string_line.at(3));
+        float chemicalCombinationChloride = stof(sub_string_line.at(4));
+        int prodQuantity = stoi(sub_string_line.at(5));
+        int reqProdQuantity = stoi(sub_string_line.at(6));
+        int stockDuration = stoi(sub_string_line.at(7));
+
+        endproduction_dep_ref.addProduct(productType, cost, price, chemicalCombinationSo3, chemicalCombinationChloride, prodQuantity, reqProdQuantity, stockDuration);
+    }
+}
 
 void read_input(ifstream &inputFileStream, End_Production &endproduction_dep_ref)
 {
@@ -65,23 +80,6 @@ void read_input(ifstream &inputFileStream, End_Production &endproduction_dep_ref
         {
             // read_department(sub_string_lines, transport_dep_ref);
         }
-    }
-}
-
-void read_department(vector<vector<string>> &sub_string_lines, End_Production &depRef)
-{
-    for (vector<string> sub_string_line : sub_string_lines)
-    {
-        string productType = sub_string_line.at(0);
-        float cost = stof(sub_string_line.at(1));
-        float price = stof(sub_string_line.at(2));
-        float chemicalCombinationSo3 = stof(sub_string_line.at(3));
-        float chemicalCombinationChloride = stof(sub_string_line.at(4));
-        int prodQuantity = stoi(sub_string_line.at(5));
-        int reqProdQuantity = stoi(sub_string_line.at(6));
-        int stockDuration = stoi(sub_string_line.at(7));
-
-        depRef.addProduct(productType, cost, price, chemicalCombinationSo3, chemicalCombinationChloride, prodQuantity, reqProdQuantity, stockDuration);
     }
 }
 
