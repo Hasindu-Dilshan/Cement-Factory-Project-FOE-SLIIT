@@ -47,4 +47,6 @@ public:
 	void setProdQuantity(int prodQuantity);
 	void setReqProdQuantity(int reqprodQuantity);
 	void setStockDuration(int stockDuration);
+
+	const string toString() const;
 };

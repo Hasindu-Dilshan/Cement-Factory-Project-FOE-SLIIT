@@ -119,5 +119,11 @@ int main()
 
     cout << decorate(decorator, false, endProductionDepartment.getName()) << endl
          << endl;
+
+    /* toString() method test */
+    cout << "=== toString() ===" << endl
+         << endl
+         << endProductionDepartment.toString();
+
     return 0;
 }

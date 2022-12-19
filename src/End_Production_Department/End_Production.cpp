@@ -68,9 +68,9 @@ const string End_Production::toString()
 {
 	ostringstream all_buffer;
 
-	for (int i = 0; i < productCount; i++)
+	for (int productID = 0; productID < productCount; productID++)
 	{
-		all_buffer << End_Production::toString(i);
+		all_buffer << End_Production::toString(productID);
 	}
 
 	return all_buffer.str();
@@ -80,19 +80,5 @@ const string End_Production::toString()
 // const(2) : Read-only access to class's data members
 const string End_Production::toString(int productID) const
 {
-	ostringstream buffer;
-
-	buffer << fixed << showpoint << setprecision(2)
-		   << "productID: " << productID << endl
-		   << "productType: " << productArray[productID]->getProductType() << endl
-		   << "cost: " << productArray[productID]->getCost() << endl
-		   << "price: " << productArray[productID]->getPrice() << endl
-		   << "chemicalCombinationSo3: " << productArray[productID]->getChemicalCombinationSo3() << endl
-		   << "chemicalCombinationChloride: " << productArray[productID]->getChemicalCombinationChloride() << endl
-		   << "prodQuantity: " << productArray[productID]->getProdQuantity() << endl
-		   << "reqProdQuantity: " << productArray[productID]->getReqProdQuantity() << endl
-		   << "stockDuration: " << productArray[productID]->getStockDuration() << endl
-		   << endl;
-
-	return buffer.str();
+	return productArray[productID]->toString();
 }
