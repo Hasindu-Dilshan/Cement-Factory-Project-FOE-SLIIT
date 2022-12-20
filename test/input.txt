@@ -2,4 +2,14 @@ Department:End Production
 INSEE Sanstha, 1000, 1500, 3, 0.08, 400, 375, 6
 INSEE Mahaweli Marine Plus, 800, 1100, 3, 0.08, 700, 700, 4
 
+Department:Raw Material
+Limestone, A Grade, 6700000, 6200, 500, 8300, 3000, 2
+Sulfur trioxide, A Grade, 100000, 6, 11, 3, 4, 1
+
 Department:Transport
+Staff Transport, 1200, 12, 800
+Raw Material Transport, 1800, 6, 900
+
+Department:Worker Statement
+Kalindu, Permanent, 160, 8, 3000, 9, 1300
+Manula, Temporary, 171, 9, 2500, 11, 1100

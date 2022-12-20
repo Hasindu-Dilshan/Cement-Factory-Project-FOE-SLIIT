@@ -44,4 +44,6 @@ public:
 	void setPaymentForADay(int paymentForADay);
 	void setOverTimeHours(int overTimeHours);
 	void setOverTimePaymentPerHour(int overTimePaymentPerHour);
+
+	const string toString() const;
 };

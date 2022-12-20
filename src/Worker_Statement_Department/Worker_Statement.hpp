@@ -22,4 +22,7 @@ public:
 	void addWorker(string workerName, string workerType, int workingHoursInTheMonth, int fixWorkingHoursPerDay, int paymentForADay, int overtimeHours, int overtimePaymentPerHour);
 	void removeWorker(int productID);
 	void getWorker(int productID);
+
+	const string toString();
+	const string toString(int productID) const;
 };

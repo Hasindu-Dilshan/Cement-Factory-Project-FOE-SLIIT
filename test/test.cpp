@@ -14,8 +14,11 @@ using namespace std;
 
 /* Function prototypes */
 string decorate(string decorator, bool start, string text);
-void read_input(ifstream &inputFileStream, End_Production &endproduction_dep_ref);
-void read_department(vector<vector<string>> &sub_string_lines, End_Production &endproduction_dep_ref);
+void read_input(ifstream &inputFileStream, End_Production &endProductionDepartment, Raw_Material rawMaterialDepartment, Transport transportDepartment, Worker_Statement workerStatementDepartment);
+void read_department(vector<vector<string>> &sub_string_lines, End_Production &endProductionDepartment);
+void read_department(vector<vector<string>> &sub_string_lines, Raw_Material &rawMaterialDepartment);
+void read_department(vector<vector<string>> &sub_string_lines, Transport &transportDepartment);
+void read_department(vector<vector<string>> &sub_string_lines, Worker_Statement &workerStatementDepartment);
 
 int main()
 {
@@ -23,12 +26,17 @@ int main()
 
     /* Make Department Objects */
     End_Production endProductionDepartment;
+    Raw_Material rawMaterialDepartment;
+    Transport transportDepartment;
+    Worker_Statement workerStatementDepartment;
 
-    read_input(inputFileStream, endProductionDepartment);
+    read_input(inputFileStream, endProductionDepartment, rawMaterialDepartment, transportDepartment, workerStatementDepartment);
 
     const string decorator = "--------------------";
 
     /* End Production Department affairs */
+
+    /*
 
     // Show End Production Department affairs
     cout << decorate(decorator, true, endProductionDepartment.getName()) << endl
@@ -40,10 +48,24 @@ int main()
     cout << decorate(decorator, false, endProductionDepartment.getName()) << endl
          << endl;
 
+    */
+
     // toString() method test
-    cout << "=== toString() ===" << endl
+    cout << "=== End_Production::toString() ===" << endl
          << endl
          << endProductionDepartment.toString();
+
+    // cout << "=== Raw_Material::toString() ===" << endl
+    //      << endl
+    //      << rawMaterialDepartment.toString();
+
+    cout << "=== Transport::toString() ===" << endl
+         << endl
+         << transportDepartment.toString();
+
+    cout << "=== Worker_Statement::toString() ===" << endl
+         << endl
+         << workerStatementDepartment.toString();
 
     return 0;
 }
@@ -60,7 +82,7 @@ string decorate(string decorator, bool start, string text)
     }
 }
 
-void read_input(ifstream &inputFileStream, End_Production &endproduction_dep_ref)
+void read_input(ifstream &inputFileStream, End_Production &endProductionDepartment, Raw_Material rawMaterialDepartment, Transport transportDepartment, Worker_Statement workerStatementDepartment)
 {
     string line;
 
@@ -105,16 +127,24 @@ void read_input(ifstream &inputFileStream, End_Production &endproduction_dep_ref
 
         if (departmentName == "End Production")
         {
-            read_department(sub_string_lines, endproduction_dep_ref);
+            read_department(sub_string_lines, endProductionDepartment);
         }
-        else if (departmentName == "Transport")
+        if (departmentName == "Raw Material")
         {
-            // read_department(sub_string_lines, transport_dep_ref);
+            read_department(sub_string_lines, rawMaterialDepartment);
+        }
+        if (departmentName == "Transport")
+        {
+            read_department(sub_string_lines, transportDepartment);
+        }
+        if (departmentName == "Worker Statement")
+        {
+            read_department(sub_string_lines, workerStatementDepartment);
         }
     }
 }
 
-void read_department(vector<vector<string>> &sub_string_lines, End_Production &endproduction_dep_ref)
+void read_department(vector<vector<string>> &sub_string_lines, End_Production &endProductionDepartment)
 {
     for (vector<string> sub_string_line : sub_string_lines)
     {
@@ -127,6 +157,53 @@ void read_department(vector<vector<string>> &sub_string_lines, End_Production &e
         int reqProdQuantity = stoi(sub_string_line.at(6));
         int stockDuration = stoi(sub_string_line.at(7));
 
-        endproduction_dep_ref.addProduct(productType, cost, price, chemicalCombinationSo3, chemicalCombinationChloride, prodQuantity, reqProdQuantity, stockDuration);
+        endProductionDepartment.addProduct(productType, cost, price, chemicalCombinationSo3, chemicalCombinationChloride, prodQuantity, reqProdQuantity, stockDuration);
+    }
+}
+
+void read_department(vector<vector<string>> &sub_string_lines, Raw_Material &rawMaterialDepartment)
+{
+    for (vector<string> sub_string_line : sub_string_lines)
+    {
+        string materialType = sub_string_line.at(0);
+        string materialQulaity = sub_string_line.at(1);
+        float cost = stof(sub_string_line.at(2));
+        int suppliedQuantity = stoi(sub_string_line.at(3));
+        int safetyStock = stoi(sub_string_line.at(4));
+        int availableStock = stoi(sub_string_line.at(5));
+
+        cout << "test.cpp > availableStock=" << availableStock << endl;
+
+        int orderedStock = stoi(sub_string_line.at(6));
+        int stockDuration = stoi(sub_string_line.at(7));
+
+        rawMaterialDepartment.addMaterial(materialType, materialQulaity, cost, suppliedQuantity, safetyStock, availableStock, orderedStock, stockDuration);
+    }
+}
+void read_department(vector<vector<string>> &sub_string_lines, Transport &transportDepartment)
+{
+    for (vector<string> sub_string_line : sub_string_lines)
+    {
+        string transferableType = sub_string_line.at(0);
+        float fuelIssued = stof(sub_string_line.at(1));
+        float averageFuelConsumption = stof(sub_string_line.at(2));
+        float kilometersDone = stof(sub_string_line.at(3));
+
+        transportDepartment.addTransferable(transferableType, fuelIssued, averageFuelConsumption, kilometersDone);
+    }
+}
+void read_department(vector<vector<string>> &sub_string_lines, Worker_Statement &workerStatementDepartment)
+{
+    for (vector<string> sub_string_line : sub_string_lines)
+    {
+        string workerName = sub_string_line.at(0);
+        string workerType = sub_string_line.at(1);
+        int workingHoursInTheMonth = stoi(sub_string_line.at(2));
+        int fixWorkingHoursPerDay = stoi(sub_string_line.at(3));
+        int paymentForADay = stoi(sub_string_line.at(4));
+        int overtimeHours = stoi(sub_string_line.at(5));
+        int overtimePaymentPerHour = stoi(sub_string_line.at(6));
+
+        workerStatementDepartment.addWorker(workerName, workerType, workingHoursInTheMonth, fixWorkingHoursPerDay, paymentForADay, overtimeHours, overtimePaymentPerHour);
     }
 }

@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <iomanip>
+#include <sstream>
 
 #include "Transport.hpp"
 
@@ -50,4 +52,23 @@ void Transport::getTransferable(int transferableID) {
 	else {
 		cout << "[-] Requested transferable is not available!" << endl << endl;
 	}
+}
+
+const string Transport::toString()
+{
+	ostringstream all_buffer;
+
+	for (int transferableID = 0; transferableID < transferableCount; transferableID++)
+	{
+		all_buffer << toString(transferableID);
+	}
+
+	return all_buffer.str();
+}
+
+// const(1) : Make string immutable during return mechanism
+// const(2) : Read-only access to class's data members
+const string Transport::toString(int transferableID) const
+{
+	return transferableArray[transferableID]->toString();
 }

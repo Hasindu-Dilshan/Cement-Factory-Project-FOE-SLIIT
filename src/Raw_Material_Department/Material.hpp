@@ -5,30 +5,30 @@
 
 using namespace std;
 
-class Material {
+class Material
+{
 private:
-	int materialID;
+    int materialID;
     string materialType;
     string materialQulaity;
-	float cost;
-	int suppliedQuantity;
-	int safetyStock;
-	int availableStock;
+    float cost;
+    int suppliedQuantity;
+    int safetyStock;
+    int availableStock;
     int orderedStock;
-	int stockDuration;
+    int stockDuration;
 
 public:
     Material();
-    
-	Material(int materialID, string materialType, string materialQulaity, float cost, int suppliedQuantity, int safetyStock, int availableStock, int orderedStock, int stockDuration);
-		 
-	~Material();
+    Material(int materialID, string materialType, string materialQulaity, float cost, int suppliedQuantity, int safetyStock, int availableStock, int orderedStock, int stockDuration);
+
+    ~Material();
 
     void calcFullStock();
-    void calcEndStock(); 
+    void calcEndStock();
     void displayProdDetails();
-  
-    //Getters
+
+    // Getters
     string getMaterialType();
     string getMaterialQulaity();
     float getCost();
@@ -37,7 +37,7 @@ public:
     int getAvailableStock();
     int getOrderedStock();
     int getStockDuration();
-    
+
     // Setters
     void setMaterialType(string materialType);
     void setMaterialQulaity(string materialQulaity);
@@ -47,4 +47,6 @@ public:
     void setAvailableStock(int availableStock);
     void setOrderedStock(int orderedStock);
     void setStockDuration(int stockDuration);
+
+    const string toString() const;
 };

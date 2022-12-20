@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <iomanip>
+#include <sstream>
 
 #include "Worker_Statement.hpp"
 
@@ -51,4 +53,23 @@ void Worker_Statement::getWorker(int workerID) {
 	else {
 		cout << "[-] Requested product is not available!" << endl << endl;
 	}
+}
+
+const string Worker_Statement::toString()
+{
+	ostringstream all_buffer;
+
+	for (int workerID = 0; workerID < workerCount; workerID++)
+	{
+		all_buffer << toString(workerID);
+	}
+
+	return all_buffer.str();
+}
+
+// const(1) : Make string immutable during return mechanism
+// const(2) : Read-only access to class's data members
+const string Worker_Statement::toString(int workerID) const
+{
+	return workerArray[workerID]->toString();
 }

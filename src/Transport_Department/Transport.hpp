@@ -22,4 +22,7 @@ public:
 	void addTransferable(string transferableType, float fuelIssued, float averageFuelConsumption, float kilometersDone);
 	void removeTransferable(int transferableID);
 	void getTransferable(int transferableID);
+
+	const string toString();
+	const string toString(int transferableID) const;
 };

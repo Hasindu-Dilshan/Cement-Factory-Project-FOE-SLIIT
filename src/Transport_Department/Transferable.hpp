@@ -5,7 +5,8 @@
 
 using namespace std;
 
-class Transferable {
+class Transferable
+{
 private:
 	int transferableID;
 	string transferableType;
@@ -19,9 +20,9 @@ private:
 
 public:
 	Transferable();
-	
+
 	Transferable(int transferableID, string transferableType, float fuelIssued, float averageFuelConsumption, float kilometersDone);
-		 
+
 	~Transferable();
 
 	void calcFuelCost();
@@ -43,4 +44,6 @@ public:
 	void setFuelCost(float fuelCost);
 	void setAverageFuelConsumption(float averageFuelConsumption);
 	void setKilometersDone(float kilometersDone);
+
+	const string toString() const;
 };
