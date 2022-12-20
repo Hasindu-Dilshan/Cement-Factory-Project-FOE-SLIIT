@@ -102,13 +102,14 @@ int main()
     /* Make Department Objects */
     End_Production endProductionDepartment;
 
-    read_input(inputFileStream, endProductionDepartment);
 
-    /* End Production Department affairs */
+    read_input(inputFileStream, endProductionDepartment);
 
     const string decorator = "--------------------";
 
-    /* Show End Production Department affairs */
+    /* End Production Department affairs */
+
+    // Show End Production Department affairs
     cout << decorate(decorator, true, endProductionDepartment.getName()) << endl
          << endl;
 
@@ -118,7 +119,7 @@ int main()
     cout << decorate(decorator, false, endProductionDepartment.getName()) << endl
          << endl;
 
-    /* toString() method test */
+    // toString() method test
     cout << "=== toString() ===" << endl
          << endl
          << endProductionDepartment.toString();
