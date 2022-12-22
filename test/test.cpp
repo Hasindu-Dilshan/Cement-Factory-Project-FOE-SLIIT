@@ -14,7 +14,7 @@ using namespace std;
 
 /* Function prototypes */
 string decorate(string decorator, bool start, string text);
-void read_input(ifstream &inputFileStream, End_Production &endProductionDepartment, Raw_Material rawMaterialDepartment, Transport transportDepartment, Worker_Statement workerStatementDepartment);
+void read_input(ifstream &inputFileStream, End_Production &endProductionDepartment, Raw_Material &rawMaterialDepartment, Transport &transportDepartment, Worker_Statement &workerStatementDepartment);
 void read_department(vector<vector<string>> &sub_string_lines, End_Production &endProductionDepartment);
 void read_department(vector<vector<string>> &sub_string_lines, Raw_Material &rawMaterialDepartment);
 void read_department(vector<vector<string>> &sub_string_lines, Transport &transportDepartment);
@@ -82,7 +82,7 @@ string decorate(string decorator, bool start, string text)
     }
 }
 
-void read_input(ifstream &inputFileStream, End_Production &endProductionDepartment, Raw_Material rawMaterialDepartment, Transport transportDepartment, Worker_Statement workerStatementDepartment)
+void read_input(ifstream &inputFileStream, End_Production &endProductionDepartment, Raw_Material &rawMaterialDepartment, Transport &transportDepartment, Worker_Statement &workerStatementDepartment)
 {
     string line;
 

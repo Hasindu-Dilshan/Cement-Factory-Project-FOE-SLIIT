@@ -23,7 +23,6 @@ Material::Material(int materialID, string materialType, string materialQulaity, 
 	this->safetyStock = safetyStock;
 	this->availableStock = availableStock;
 	cout << "Material.cpp > availableStock=" << availableStock << endl;
-	cout << "Material.cpp > this->availableStock=" << this->availableStock << endl;
 	this->orderedStock = orderedStock;
 	this->stockDuration = stockDuration;
 }
