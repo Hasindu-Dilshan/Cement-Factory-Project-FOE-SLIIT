@@ -56,7 +56,7 @@ void Worker::displayworkerTypeDetails()
 	std::cout << std::setw(max_width) << "Overtime Payment per Hour: " << overTimePaymentPerHour << std::endl;
 	std::cout << std::endl;
 
-	std::cout << "[*] Working days for the month: " << workingDays << "  days" << std::endl;
+	std::cout << "[*] Working days for the month: " << workingDays << " days" << std::endl;
 	std::cout << "[*] Salary: " << salary << std::endl;
 	std::cout << std::endl;
 

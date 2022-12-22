@@ -29,6 +29,10 @@ int main()
 
     const std::string decorator = "--------------------";
 
+
+
+
+
     // toString() method test
 
     // cout << "=== End_Production::toString() ===" << endl
@@ -46,6 +50,10 @@ int main()
     // cout << "=== Worker_Statement::toString() ===" << endl
     //      << endl
     //      << workerStatementDepartment.toString();
+
+
+
+
 
     /* Show End Production Department affairs */
     std::cout << decorate(decorator, true, endProductionDepartment.getName());
