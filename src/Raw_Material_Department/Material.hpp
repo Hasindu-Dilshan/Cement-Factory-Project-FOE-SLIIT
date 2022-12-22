@@ -11,18 +11,19 @@ private:
     int materialID;
     string materialType;
     string materialQulaity;
-    float cost;
+    long cost;
     int suppliedQuantity;
     int safetyStock;
     int availableStock;
     int orderedStock;
     int stockDuration;
-    float fullStock;
-    float endStock;
+    int fullStock;
+    int endStock;
 
 public:
     Material();
-    Material(int materialID, string materialType, string materialQulaity, float cost, int suppliedQuantity, int safetyStock, int availableStock, int orderedStock, int stockDuration);
+    Material(int materialID, string materialType, string materialQulaity, long cost, int suppliedQuantity, int safetyStock,
+             int availableStock, int orderedStock, int stockDuration);
 
     ~Material();
 
@@ -33,7 +34,7 @@ public:
     // Getters
     string getMaterialType();
     string getMaterialQulaity();
-    float getCost();
+    long getCost();
     int getSuppliedQuantity();
     int getSafetyStock();
     int getAvailableStock();
@@ -43,7 +44,7 @@ public:
     // Setters
     void setMaterialType(string materialType);
     void setMaterialQulaity(string materialQulaity);
-    void setCost(float cost);
+    void setCost(long cost);
     void setSuppliedQuantity(int muppliedQuantity);
     void setSafetyStock(int safetyStock);
     void setAvailableStock(int availableStock);

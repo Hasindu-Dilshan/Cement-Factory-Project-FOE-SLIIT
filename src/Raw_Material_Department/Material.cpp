@@ -13,7 +13,7 @@ Material::Material()
 }
 
 // Overloaded Constructor
-Material::Material(int materialID, string materialType, string materialQulaity, float cost, int suppliedQuantity, int safetyStock, int availablestock, int orderedStock, int stockDuration)
+Material::Material(int materialID, string materialType, string materialQulaity, long cost, int suppliedQuantity, int safetyStock, int availableStock, int orderedStock, int stockDuration)
 {
 	this->materialID = materialID;
 	this->materialType = materialType;
@@ -22,7 +22,6 @@ Material::Material(int materialID, string materialType, string materialQulaity, 
 	this->suppliedQuantity = suppliedQuantity;
 	this->safetyStock = safetyStock;
 	this->availableStock = availableStock;
-	cout << "Material.cpp > availableStock=" << availableStock << endl;
 	this->orderedStock = orderedStock;
 	this->stockDuration = stockDuration;
 
@@ -43,7 +42,7 @@ void Material::calcFullStock()
 }
 void Material::calcEndStock()
 {
-	this->endStock = (availableStock + safetyStock) - suppliedQuantity;
+	this->endStock = fullStock - suppliedQuantity;
 }
 void Material::displayProdDetails()
 {
@@ -51,15 +50,15 @@ void Material::displayProdDetails()
 
 	cout << setw(max_width) << "Material: " << materialType << endl;
 	cout << setw(max_width) << "MaterialQulaity: " << materialQulaity << endl;
-	cout << setw(max_width) << "Cost: " << cost << "Million" << endl;
+	cout << setw(max_width) << "Cost: " << cost << " Million" << endl;
 	cout << setw(max_width) << "SuppliedQuantity: " << suppliedQuantity << endl;
 	cout << setw(max_width) << "Availablestock quantity: " << availableStock << "Ton" << endl;
 	cout << setw(max_width) << "Safety Stock: " << safetyStock << "Ton" << endl;
 	cout << setw(max_width) << "Availablestock till: " << stockDuration << " months" << endl;
 	cout << endl;
 
-	cout << setw(max_width) << "[*] Fullstock: " << fullStock << " Ton" << endl;
-	cout << setw(max_width) << "[*] Balance raw material stock: " << endStock << "Ton" << endl
+	cout << "[*] Fullstock: " << fullStock << " Ton" << endl;
+	cout << "[*] Balance raw material stock: " << endStock << "Ton" << endl
 		 << endl;
 }
 
@@ -72,7 +71,7 @@ string Material::getMaterialQulaity()
 {
 	return materialQulaity;
 }
-float Material::getCost()
+long Material::getCost()
 {
 	return cost;
 }
@@ -106,7 +105,7 @@ void Material::setMaterialQulaity(string materialQulaity)
 {
 	this->materialQulaity = materialQulaity;
 }
-void Material::setCost(float cost)
+void Material::setCost(long cost)
 {
 	this->cost = cost;
 }

@@ -11,7 +11,7 @@ private:
 	string workerName;
 	string workerType;
 	int workingHoursInTheMonth;
-	int fixWorkingHoursPerDay;
+	int fixedWorkingHoursPerDay;
 	int paymentForADay;
 	int overTimeHours;
 	int overTimePaymentPerHour;
@@ -21,7 +21,7 @@ private:
 public:
 	Worker();
 	
-	Worker(int workerID, string workerName, string workerType, int workingHoursInTheMonth, int fixWorkingHoursPerDay, int paymentForADay, int overTimeHours, int overTimePaymentPerHour);
+	Worker(int workerID, string workerName, string workerType, int workingHoursInTheMonth, int fixedWorkingHoursPerDay, int paymentForADay, int overTimeHours, int overTimePaymentPerHour);
 		 
 	~Worker();
 
@@ -33,7 +33,7 @@ public:
 	string getWorkerName();
 	string getWorkerType();
 	float getWorkingHoursInTheMonth();
-	int getFixWorkingHoursPerDay();
+	int getFixedWorkingHoursPerDay();
 	float getPaymentForADay();
 	float getOverTimeHours();
 	float getOverTimePaymentPerHour();
@@ -44,7 +44,7 @@ public:
 	void setWorkerName(string workerName);
 	void setWorkerType(string workerType);
 	void setWorkingHoursInTheMonth(int workingHoursInTheMonth);
-	void setFixWorkingHoursPerDay(int fixWorkWingHoursPerDay);
+	void setFixedWorkingHoursPerDay(int fixWorkWingHoursPerDay);
 	void setPaymentForADay(int paymentForADay);
 	void setOverTimeHours(int overTimeHours);
 	void setOverTimePaymentPerHour(int overTimePaymentPerHour);

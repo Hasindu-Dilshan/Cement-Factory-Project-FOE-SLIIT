@@ -34,13 +34,53 @@ int main()
 
     const string decorator = "--------------------";
 
+
+
+
     /* End Production Department affairs */
 
-    /*
-
     // Show End Production Department affairs
+    // cout << decorate(decorator, true, endProductionDepartment.getName()) << endl
+    //      << endl;
+
+    // endProductionDepartment.getProduct(0);
+    // endProductionDepartment.getProduct(1);
+
+    // cout << decorate(decorator, false, endProductionDepartment.getName()) << endl
+    //      << endl;
+
+
+
+
+    // toString() method test
+
+    // cout << "=== End_Production::toString() ===" << endl
+    //      << endl
+    //      << endProductionDepartment.toString();
+
+    // cout << "=== Raw_Material::toString() ===" << endl
+    //      << endl
+    //      << rawMaterialDepartment.toString();
+
+    // cout << "=== Transport::toString() ===" << endl
+    //      << endl
+    //      << transportDepartment.toString();
+
+    // cout << "=== Worker_Statement::toString() ===" << endl
+    //      << endl
+    //      << workerStatementDepartment.toString();
+
+
+
+
+    /* Show End Production Department affairs */
     cout << decorate(decorator, true, endProductionDepartment.getName()) << endl
          << endl;
+
+    endProductionDepartment.getProduct(0);
+    endProductionDepartment.getProduct(1);
+
+    endProductionDepartment.removeProduct(0);
 
     endProductionDepartment.getProduct(0);
     endProductionDepartment.getProduct(1);
@@ -48,24 +88,50 @@ int main()
     cout << decorate(decorator, false, endProductionDepartment.getName()) << endl
          << endl;
 
-    */
+    /* Show Raw Materials Department affairs */
+    cout << decorate(decorator, true, rawMaterialDepartment.getName()) << endl
+         << endl;
 
-    // toString() method test
-    cout << "=== End_Production::toString() ===" << endl
-         << endl
-         << endProductionDepartment.toString();
+    rawMaterialDepartment.getMaterial(0);
+    rawMaterialDepartment.getMaterial(1);
 
-    // cout << "=== Raw_Material::toString() ===" << endl
-    //      << endl
-    //      << rawMaterialDepartment.toString();
+    rawMaterialDepartment.removeMaterial(0);
 
-    cout << "=== Transport::toString() ===" << endl
-         << endl
-         << transportDepartment.toString();
+    rawMaterialDepartment.getMaterial(0);
+    rawMaterialDepartment.getMaterial(1);
 
-    cout << "=== Worker_Statement::toString() ===" << endl
-         << endl
-         << workerStatementDepartment.toString();
+    cout << decorate(decorator, false, rawMaterialDepartment.getName()) << endl
+         << endl;
+
+    /* Show Transport Department affairs */
+    cout << decorate(decorator, true, transportDepartment.getName()) << endl
+         << endl;
+
+    transportDepartment.getTransferable(0);
+    transportDepartment.getTransferable(1);
+
+    transportDepartment.removeTransferable(0);
+
+    transportDepartment.getTransferable(0);
+    transportDepartment.getTransferable(1);
+
+    cout << decorate(decorator, false, transportDepartment.getName()) << endl
+         << endl;
+
+    /* Show Worker Statement Department affairs */
+    cout << decorate(decorator, true, workerStatementDepartment.getName()) << endl
+         << endl;
+
+    workerStatementDepartment.getWorker(0);
+    workerStatementDepartment.getWorker(1);
+
+    workerStatementDepartment.removeWorker(0);
+
+    workerStatementDepartment.getWorker(0);
+    workerStatementDepartment.getWorker(1);
+
+    cout << decorate(decorator, false, workerStatementDepartment.getName()) << endl
+         << endl;
 
     return 0;
 }
@@ -167,13 +233,10 @@ void read_department(vector<vector<string>> &sub_string_lines, Raw_Material &raw
     {
         string materialType = sub_string_line.at(0);
         string materialQulaity = sub_string_line.at(1);
-        float cost = stof(sub_string_line.at(2));
+        long cost = stol(sub_string_line.at(2));
         int suppliedQuantity = stoi(sub_string_line.at(3));
         int safetyStock = stoi(sub_string_line.at(4));
         int availableStock = stoi(sub_string_line.at(5));
-
-        cout << "test.cpp > availableStock=" << availableStock << endl;
-
         int orderedStock = stoi(sub_string_line.at(6));
         int stockDuration = stoi(sub_string_line.at(7));
 

@@ -26,7 +26,7 @@ int Raw_Material::getMaterialCount()
 	return materialCount;
 }
 
-void Raw_Material::addMaterial(string materialType, string materialQulaity, float cost, int suppliedQuantity, int safetyStock, int availableStock, int orderedStock, int stockDuration)
+void Raw_Material::addMaterial(string materialType, string materialQulaity, long cost, int suppliedQuantity, int safetyStock, int availableStock, int orderedStock, int stockDuration)
 {
 	if (materialCount < maxMemberCount)
 	{

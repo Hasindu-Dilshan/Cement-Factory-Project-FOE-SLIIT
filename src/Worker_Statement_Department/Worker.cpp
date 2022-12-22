@@ -13,13 +13,13 @@ Worker::Worker()
 }
 
 // Overloaded Constructor
-Worker::Worker(int workerID, string workerName, string workerType, int workingHoursInTheMonth, int fixWorkingHoursPerDay, int paymentForADay, int overTimeHours, int overTimePaymentPerHour)
+Worker::Worker(int workerID, string workerName, string workerType, int workingHoursInTheMonth, int fixedWorkingHoursPerDay, int paymentForADay, int overTimeHours, int overTimePaymentPerHour)
 {
 	this->workerID = workerID;
 	this->workerName = workerName;
 	this->workerType = workerType;
 	this->workingHoursInTheMonth = workingHoursInTheMonth;
-	this->fixWorkingHoursPerDay = fixWorkingHoursPerDay;
+	this->fixedWorkingHoursPerDay = fixedWorkingHoursPerDay;
 	this->paymentForADay = paymentForADay;
 	this->overTimeHours = overTimeHours;
 	this->overTimePaymentPerHour = overTimePaymentPerHour;
@@ -37,12 +37,12 @@ Worker::~Worker()
 
 void Worker::calcWorkingDaysForTheMonth()
 {
-	this->workingDays = (int)((float)workingHoursInTheMonth / fixWorkingHoursPerDay);
+	this->workingDays = (int)((float)workingHoursInTheMonth / fixedWorkingHoursPerDay);
 }
 
 void Worker::calcSalary()
 {
-	this->salary = (((float)workingHoursInTheMonth / fixWorkingHoursPerDay) * paymentForADay) + (overTimeHours * overTimePaymentPerHour);
+	this->salary = (workingDays * paymentForADay) + (overTimeHours * overTimePaymentPerHour);
 }
 
 void Worker::displayworkerTypeDetails()
@@ -52,16 +52,15 @@ void Worker::displayworkerTypeDetails()
 	cout << setw(max_width) << "Name of the Worker: " << workerName << endl;
 	cout << setw(max_width) << "Worker Type: " << workerType << endl;
 	cout << setw(max_width) << "Working Hours in The Month: " << workingHoursInTheMonth << " hours" << endl;
-	cout << setw(max_width) << "Fix Working Hours per Day: " << fixWorkingHoursPerDay << " hours" << endl;
-	cout << setw(max_width) << "Payment For A Day: "
-		 << "Rs." << paymentForADay << " /=" << endl;
+	cout << setw(max_width) << "Fix Working Hours per Day: " << fixedWorkingHoursPerDay << " hours" << endl;
+	cout << setw(max_width) << "Payment For A Day: " << paymentForADay << endl;
 	cout << setw(max_width) << "Overtime Hours: " << overTimeHours << " hours" << endl;
-	cout << setw(max_width) << "Overtime Payment per Hour: "
-		 << "Rs." << overTimePaymentPerHour << " /=" << endl;
+	cout << setw(max_width) << "Overtime Payment per Hour: " << overTimePaymentPerHour << endl;
 	cout << endl;
 
-	cout << setw(max_width) << "[*] Working days for the month: " << workingDays << "  days" << endl;
-	cout << setw(max_width) << "[*] Salary: Rs." << salary << " /=" << endl;
+	cout << "[*] Working days for the month: " << workingDays << "  days" << endl;
+	cout << "[*] Salary: " << salary << endl;
+	cout << endl;
 
 	calcWorkingDaysForTheMonth();
 	calcSalary();
@@ -80,9 +79,9 @@ float Worker::getWorkingHoursInTheMonth()
 {
 	return workingHoursInTheMonth;
 }
-int Worker::getFixWorkingHoursPerDay()
+int Worker::getFixedWorkingHoursPerDay()
 {
-	return fixWorkingHoursPerDay;
+	return fixedWorkingHoursPerDay;
 }
 float Worker::getPaymentForADay()
 {
@@ -118,9 +117,9 @@ void Worker::setWorkingHoursInTheMonth(int workingHoursInTheMonth)
 {
 	this->workingHoursInTheMonth = workingHoursInTheMonth;
 }
-void Worker::setFixWorkingHoursPerDay(int fixWorkingHoursPerDay)
+void Worker::setFixedWorkingHoursPerDay(int fixedWorkingHoursPerDay)
 {
-	this->fixWorkingHoursPerDay = fixWorkingHoursPerDay;
+	this->fixedWorkingHoursPerDay = fixedWorkingHoursPerDay;
 }
 void Worker::setPaymentForADay(int paymentForADay)
 {
@@ -144,12 +143,12 @@ const string Worker::toString() const
 		   << "workerName: " << workerName << endl
 		   << "workerType: " << workerType << endl
 		   << "workingHoursInTheMonth: " << workingHoursInTheMonth << endl
-		   << "fixWorkingHoursPerDay: " << fixWorkingHoursPerDay << endl
+		   << "fixedWorkingHoursPerDay: " << fixedWorkingHoursPerDay << endl
 		   << "paymentForADay: " << paymentForADay << endl
 		   << "overTimeHours: " << overTimeHours << endl
 		   << "overTimePaymentPerHour: " << overTimePaymentPerHour << endl
 		   << "workingDays: " << workingDays << "  days" << endl
-		   << "salary: " << salary << " /=" << endl
+		   << "salary: " << salary << endl
 		   << endl;
 
 	return buffer.str();

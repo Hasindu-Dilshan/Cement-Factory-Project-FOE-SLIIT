@@ -57,9 +57,10 @@ void Product::displayProdDetails()
 	cout << setw(max_width) << "Chemical Combination SO3: " << chemicalCombinationSo3 << "%" << endl;
 	cout << setw(max_width) << "Chemical Combination Chloride: " << chemicalCombinationChloride << "%" << endl;
 	cout << setw(max_width) << "Stock Availability: " << stockDuration << " months" << endl;
+	cout << endl;
 
-	cout << setw(max_width) << "[*] Profit: Rs. " << profit << endl;
-	cout << setw(max_width) << "[*] No. of products produced than the demand: " << demand << endl
+	cout << "[*] Profit: " << profit << endl;
+	cout << "[*] No. of products produced than the demand: " << demand << endl
 		 << endl;
 }
 

@@ -21,14 +21,10 @@ Transferable::Transferable(int transferableID, string transferableType, float fu
 	this->averageFuelConsumption = averageFuelConsumption;
 	this->kilometersDone = kilometersDone;
 
-	cout << ">< Constructor finished 'this' work" << endl;
-
 	calcFuelCost();
 	calcOtherCost();
 	calcTotalCost();
 	calcAvgFuelUsage();
-
-	cout << ">< Functions executed successfully" << endl;
 }
 
 // Destructor
@@ -52,11 +48,6 @@ void Transferable::calcTotalCost()
 }
 void Transferable::calcAvgFuelUsage()
 {
-	cout << ">< Debug ><" << endl;
-	cout << "fuelIssued: " << fuelIssued << endl;
-	cout << "kilometersDone: " << kilometersDone << endl;
-	cout << "averageFuelConsumption: " << averageFuelConsumption << endl;
-
 	this->averageFuelUsage = (fuelIssued) - ((float)kilometersDone / averageFuelConsumption);
 }
 void Transferable::displayTransferableDetails()
@@ -68,10 +59,10 @@ void Transferable::displayTransferableDetails()
 	cout << setw(max_width) << "Amount of Fuels Issued (litres) : " << fuelIssued << endl;
 	cout << endl;
 
-	cout << setw(max_width) << "[*] Fuel Costs: Rs." << totalCost << endl;
-	cout << setw(max_width) << "[*] Other Costs: Rs." << totalCost << endl;
-	cout << setw(max_width) << "[*] Total Cost: Rs." << totalCost << endl;
-	cout << setw(max_width) << "[*] clearAverage fuel used (litres): " << averageFuelUsage << endl
+	cout << "[*] Fuel Costs: " << totalCost << endl;
+	cout << "[*] Other Costs: " << totalCost << endl;
+	cout << "[*] Total Cost: " << totalCost << endl;
+	cout << "[*] clearAverage fuel used (litres): " << averageFuelUsage << endl
 		 << endl;
 
 	// calcFuelCost();
