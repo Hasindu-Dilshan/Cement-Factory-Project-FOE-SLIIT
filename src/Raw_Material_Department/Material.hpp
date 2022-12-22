@@ -3,48 +3,51 @@
 #include <string>
 #include <iostream>
 
-using namespace std;
-
-class Material {
+class Material
+{
 private:
-	int materialID;
-    string materialType;
-    string materialQulaity;
-	float cost;
-	int suppliedQuantity;
-	int safetyStock;
-	int availableStock;
+    int materialID;
+    std::string materialType;
+    std::string materialQulaity;
+    long cost;
+    int suppliedQuantity;
+    int safetyStock;
+    int availableStock;
     int orderedStock;
-	int stockDuration;
+    int stockDuration;
+    int fullStock;
+    int endStock;
 
 public:
     Material();
-    
-	Material(int materialID, string materialType, string materialQulaity, float cost, int suppliedQuantity, int safetyStock, int availableStock, int orderedStock, int stockDuration);
-		 
-	~Material();
+    Material(int materialID, std::string materialType, std::string materialQulaity, long cost, int suppliedQuantity, 
+            int safetyStock, int availableStock, int orderedStock, int stockDuration);
+
+    ~Material();
 
     void calcFullStock();
-    void calcEndStock(); 
+    void calcEndStock();
     void displayProdDetails();
-  
-    //Getters
-    string getMaterialType();
-    string getMaterialQulaity();
-    float getCost();
+
+    // Getters
+    std::string getMaterialType();
+    std::string getMaterialQulaity();
+    long getCost();
     int getSuppliedQuantity();
     int getSafetyStock();
     int getAvailableStock();
     int getOrderedStock();
     int getStockDuration();
-    
+
     // Setters
-    void setMaterialType(string materialType);
-    void setMaterialQulaity(string materialQulaity);
-    void setCost(float cost);
+    void setMaterialType(std::string materialType);
+    void setMaterialQulaity(std::string materialQulaity);
+    void setCost(long cost);
     void setSuppliedQuantity(int muppliedQuantity);
     void setSafetyStock(int safetyStock);
     void setAvailableStock(int availableStock);
     void setOrderedStock(int orderedStock);
     void setStockDuration(int stockDuration);
+
+    const std::string toString() const;
 };

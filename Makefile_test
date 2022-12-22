@@ -1,5 +1,5 @@
-output.o: src/common/Department.o src/End_Production_Department/End_Production.o src/End_Production_Department/Product.o src/Raw_Material_Department/Raw_Material.o src/Raw_Material_Department/Material.o src/Transport_Department/Transport.o src/Transport_Department/Transferable.o src/Worker_Statement_Department/Worker_Statement.o src/Worker_Statement_Department/Worker.o test/main.o
-	g++ src/*/*.o test/main.o -o test/main
+output.o: src/common/Department.o src/End_Production_Department/End_Production.o src/End_Production_Department/Product.o src/Raw_Material_Department/Raw_Material.o src/Raw_Material_Department/Material.o src/Transport_Department/Transport.o src/Transport_Department/Transferable.o src/Worker_Statement_Department/Worker_Statement.o src/Worker_Statement_Department/Worker.o test/test.o
+	g++ src/*/*.o test/test.o -o test/test.exe
 
 Department.o: src/common/Department.cpp
 	g++ -c src/common/Department.cpp
@@ -28,8 +28,8 @@ Worker_Statement.o: src/Worker_Statement_Department/Worker_Statement.cpp
 Worker.o: src/Worker_Statement_Department/Worker.cpp
 	g++ -c src/Worker_Statement_Department/Worker.cpp
 
-main.o: test/main.cpp
-	g++ -c test/main.cpp
+test.o: test/test.cpp
+	g++ -c test/test.cpp
 
 clean: 
-	rm src/*/*.o test/main.o test/main
+	rm src/*/*.o test/test.o test/test.exe

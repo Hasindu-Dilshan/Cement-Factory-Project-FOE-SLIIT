@@ -9,8 +9,7 @@
 
 /* Function prototypes */
 std::string decorate(std::string decorator, bool start, std::string text);
-void read_input(std::ifstream &inputFileStream, End_Production &endProductionDepartment, Raw_Material &rawMaterialDepartment, 
-                Transport &transportDepartment, Worker_Statement &workerStatementDepartment);
+void read_input(std::ifstream &inputFileStream, End_Production &endProductionDepartment, Raw_Material &rawMaterialDepartment, Transport &transportDepartment, Worker_Statement &workerStatementDepartment);
 void read_department(std::vector<std::vector<std::string>> &sub_string_lines, End_Production &endProductionDepartment);
 void read_department(std::vector<std::vector<std::string>> &sub_string_lines, Raw_Material &rawMaterialDepartment);
 void read_department(std::vector<std::vector<std::string>> &sub_string_lines, Transport &transportDepartment);
@@ -30,7 +29,33 @@ int main()
 
     const std::string decorator = "--------------------";
 
-    /* Show End Production department affairs */
+
+
+
+
+    // toString() method test
+
+    // cout << "=== End_Production::toString() ===" << endl
+    //      << endl
+    //      << endProductionDepartment.toString();
+
+    // cout << "=== Raw_Material::toString() ===" << endl
+    //      << endl
+    //      << rawMaterialDepartment.toString();
+
+    // cout << "=== Transport::toString() ===" << endl
+    //      << endl
+    //      << transportDepartment.toString();
+
+    // cout << "=== Worker_Statement::toString() ===" << endl
+    //      << endl
+    //      << workerStatementDepartment.toString();
+
+
+
+
+
+    /* Show End Production Department affairs */
     std::cout << decorate(decorator, true, endProductionDepartment.getName());
 
     endProductionDepartment.getProduct(0);
@@ -39,10 +64,11 @@ int main()
     endProductionDepartment.removeProduct(0);
 
     endProductionDepartment.getProduct(0);
+    endProductionDepartment.getProduct(1);
 
     std::cout << decorate(decorator, false, endProductionDepartment.getName());
 
-    /* Show Raw Materials department affairs */
+    /* Show Raw Materials Department affairs */
     std::cout << decorate(decorator, true, rawMaterialDepartment.getName());
 
     rawMaterialDepartment.getMaterial(0);
@@ -51,10 +77,11 @@ int main()
     rawMaterialDepartment.removeMaterial(0);
 
     rawMaterialDepartment.getMaterial(0);
+    rawMaterialDepartment.getMaterial(1);
 
     std::cout << decorate(decorator, false, rawMaterialDepartment.getName());
 
-    /* Show Transport department affairs */
+    /* Show Transport Department affairs */
     std::cout << decorate(decorator, true, transportDepartment.getName());
 
     transportDepartment.getTransferable(0);
@@ -63,10 +90,11 @@ int main()
     transportDepartment.removeTransferable(0);
 
     transportDepartment.getTransferable(0);
+    transportDepartment.getTransferable(1);
 
     std::cout << decorate(decorator, false, transportDepartment.getName());
 
-    /* Show Worker Statement department affairs */
+    /* Show Worker Statement Department affairs */
     std::cout << decorate(decorator, true, workerStatementDepartment.getName());
 
     workerStatementDepartment.getWorker(0);
@@ -75,6 +103,7 @@ int main()
     workerStatementDepartment.removeWorker(0);
 
     workerStatementDepartment.getWorker(0);
+    workerStatementDepartment.getWorker(1);
 
     std::cout << decorate(decorator, false, workerStatementDepartment.getName());
 
@@ -99,8 +128,7 @@ std::string decorate(std::string decorator, bool start, std::string text)
     }
 }
 
-void read_input(std::ifstream &inputFileStream, End_Production &endProductionDepartment, Raw_Material &rawMaterialDepartment, 
-                Transport &transportDepartment, Worker_Statement &workerStatementDepartment)
+void read_input(std::ifstream &inputFileStream, End_Production &endProductionDepartment, Raw_Material &rawMaterialDepartment, Transport &transportDepartment, Worker_Statement &workerStatementDepartment)
 {
     std::string line;
 

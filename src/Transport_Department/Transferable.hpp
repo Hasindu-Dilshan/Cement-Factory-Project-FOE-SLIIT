@@ -3,25 +3,24 @@
 #include <string>
 #include <iostream>
 
-using namespace std;
-
-class Transferable {
+class Transferable
+{
 private:
 	int transferableID;
-	string transferableType;
+	std::string transferableType;
 	float fuelIssued;
 	float fuelCost;
-	float otherCost;
+	float otherCosts;
 	float averageFuelConsumption;
 	float kilometersDone;
 	float totalCost;
-	float averagefuelUsage;
+	float averageFuelUsage;
 
 public:
 	Transferable();
-	
-	Transferable(int transferableID, string transferableType, float fuelIssued, float averageFuelConsumption, float kilometersDone);
-		 
+
+	Transferable(int transferableID, std::string transferableType, float fuelIssued, float averageFuelConsumption, float kilometersDone);
+
 	~Transferable();
 
 	void calcFuelCost();
@@ -31,16 +30,18 @@ public:
 	void displayTransferableDetails();
 
 	// Getters
-	string getTransferableType();
+	std::string getTransferableType();
 	float getFuelIssued();
 	float getFuelCost();
 	float getAverageFuelConsumption();
 	float getKilometersDone();
 
 	// Setters
-	void setTransferableType(string transportType);
+	void setTransferableType(std::string transportType);
 	void setFuelIssued(float fuelIssued);
 	void setFuelCost(float fuelCost);
 	void setAverageFuelConsumption(float averageFuelConsumption);
 	void setKilometersDone(float kilometersDone);
+
+	const std::string toString() const;
 };

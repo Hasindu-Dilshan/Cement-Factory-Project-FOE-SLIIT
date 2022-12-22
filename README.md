@@ -11,7 +11,7 @@ git clone https://github.com/Hasindu-Dilshan/Cement-Factory-Project-FOE-SLIIT.gi
 
 1. $ make
 
-2. $ test/main.out
+2. $ test/main
 
 3. $ make clean
 

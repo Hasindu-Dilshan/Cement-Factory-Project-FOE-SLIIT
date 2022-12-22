@@ -3,8 +3,6 @@
 
 #include "Department.hpp"
 
-using namespace std;
-
 // Initialize id count
 int Department::idCount = 0;
 
@@ -14,18 +12,18 @@ Department::Department() {
 }
 
 // Overloaded Constructor
-Department::Department(string depName) {
+Department::Department(std::string depName) {
 	countDep();
 
 	this -> id = idCount;
 	this -> depName = depName;
 	
-	cout << "[+] Department id:" << this -> id << " " << this -> depName << " was created successfully!" << endl << endl; 
+	std::cout << "[+] Department id:" << this -> id << " " << this -> depName << " was created successfully!" << std::endl << std::endl; 
 }
 
 // Destructor
 Department::~Department() {
-	cout << "[+] Department id:" << this -> id << " " << this -> depName << " was destroyed!" << endl << endl; 
+	std::cout << "[+] Department id:" << this -> id << " " << this -> depName << " was destroyed!" << std::endl << std::endl; 
 }
 
 // Increment department count after each object creation
@@ -37,7 +35,7 @@ void Department::countDep() {
 int Department::getId() {
 	return id;
 }
-string Department::getName(){
+std::string Department::getName(){
 	return depName + " Department";
 }
 
@@ -45,6 +43,6 @@ string Department::getName(){
 void Department::setId() {
 	this -> id = id;
 }
-void Department::setName(string depName){
+void Department::setName(std::string depName){
 	this -> depName = depName;
 }
