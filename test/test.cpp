@@ -1,8 +1,3 @@
-#include "../src/End_Production_Department/End_Production.hpp"
-#include "../src/Raw_Material_Department/Raw_Material.hpp"
-#include "../src/Worker_Statement_Department/Worker_Statement.hpp"
-#include "../src/Transport_Department/Transport.hpp"
-
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -10,19 +5,19 @@
 #include <sstream>
 #include <regex>
 
-using namespace std;
+#include "main.hpp"
 
 /* Function prototypes */
-string decorate(string decorator, bool start, string text);
-void read_input(ifstream &inputFileStream, End_Production &endProductionDepartment, Raw_Material &rawMaterialDepartment, Transport &transportDepartment, Worker_Statement &workerStatementDepartment);
-void read_department(vector<vector<string>> &sub_string_lines, End_Production &endProductionDepartment);
-void read_department(vector<vector<string>> &sub_string_lines, Raw_Material &rawMaterialDepartment);
-void read_department(vector<vector<string>> &sub_string_lines, Transport &transportDepartment);
-void read_department(vector<vector<string>> &sub_string_lines, Worker_Statement &workerStatementDepartment);
+std::string decorate(std::string decorator, bool start, std::string text);
+void read_input(std::ifstream &inputFileStream, End_Production &endProductionDepartment, Raw_Material &rawMaterialDepartment, Transport &transportDepartment, Worker_Statement &workerStatementDepartment);
+void read_department(std::vector<std::vector<std::string>> &sub_string_lines, End_Production &endProductionDepartment);
+void read_department(std::vector<std::vector<std::string>> &sub_string_lines, Raw_Material &rawMaterialDepartment);
+void read_department(std::vector<std::vector<std::string>> &sub_string_lines, Transport &transportDepartment);
+void read_department(std::vector<std::vector<std::string>> &sub_string_lines, Worker_Statement &workerStatementDepartment);
 
 int main()
 {
-    ifstream inputFileStream("test/input.txt");
+    std::ifstream inputFileStream("test/input.txt");
 
     /* Make Department Objects */
     End_Production endProductionDepartment;
@@ -32,25 +27,7 @@ int main()
 
     read_input(inputFileStream, endProductionDepartment, rawMaterialDepartment, transportDepartment, workerStatementDepartment);
 
-    const string decorator = "--------------------";
-
-
-
-
-    /* End Production Department affairs */
-
-    // Show End Production Department affairs
-    // cout << decorate(decorator, true, endProductionDepartment.getName()) << endl
-    //      << endl;
-
-    // endProductionDepartment.getProduct(0);
-    // endProductionDepartment.getProduct(1);
-
-    // cout << decorate(decorator, false, endProductionDepartment.getName()) << endl
-    //      << endl;
-
-
-
+    const std::string decorator = "--------------------";
 
     // toString() method test
 
@@ -70,12 +47,8 @@ int main()
     //      << endl
     //      << workerStatementDepartment.toString();
 
-
-
-
     /* Show End Production Department affairs */
-    cout << decorate(decorator, true, endProductionDepartment.getName()) << endl
-         << endl;
+    std::cout << decorate(decorator, true, endProductionDepartment.getName());
 
     endProductionDepartment.getProduct(0);
     endProductionDepartment.getProduct(1);
@@ -85,12 +58,10 @@ int main()
     endProductionDepartment.getProduct(0);
     endProductionDepartment.getProduct(1);
 
-    cout << decorate(decorator, false, endProductionDepartment.getName()) << endl
-         << endl;
+    std::cout << decorate(decorator, false, endProductionDepartment.getName());
 
     /* Show Raw Materials Department affairs */
-    cout << decorate(decorator, true, rawMaterialDepartment.getName()) << endl
-         << endl;
+    std::cout << decorate(decorator, true, rawMaterialDepartment.getName());
 
     rawMaterialDepartment.getMaterial(0);
     rawMaterialDepartment.getMaterial(1);
@@ -100,12 +71,10 @@ int main()
     rawMaterialDepartment.getMaterial(0);
     rawMaterialDepartment.getMaterial(1);
 
-    cout << decorate(decorator, false, rawMaterialDepartment.getName()) << endl
-         << endl;
+    std::cout << decorate(decorator, false, rawMaterialDepartment.getName());
 
     /* Show Transport Department affairs */
-    cout << decorate(decorator, true, transportDepartment.getName()) << endl
-         << endl;
+    std::cout << decorate(decorator, true, transportDepartment.getName());
 
     transportDepartment.getTransferable(0);
     transportDepartment.getTransferable(1);
@@ -115,12 +84,10 @@ int main()
     transportDepartment.getTransferable(0);
     transportDepartment.getTransferable(1);
 
-    cout << decorate(decorator, false, transportDepartment.getName()) << endl
-         << endl;
+    std::cout << decorate(decorator, false, transportDepartment.getName());
 
     /* Show Worker Statement Department affairs */
-    cout << decorate(decorator, true, workerStatementDepartment.getName()) << endl
-         << endl;
+    std::cout << decorate(decorator, true, workerStatementDepartment.getName());
 
     workerStatementDepartment.getWorker(0);
     workerStatementDepartment.getWorker(1);
@@ -130,35 +97,40 @@ int main()
     workerStatementDepartment.getWorker(0);
     workerStatementDepartment.getWorker(1);
 
-    cout << decorate(decorator, false, workerStatementDepartment.getName()) << endl
-         << endl;
+    std::cout << decorate(decorator, false, workerStatementDepartment.getName());
 
     return 0;
 }
 
-string decorate(string decorator, bool start, string text)
+std::string decorate(std::string decorator, bool start, std::string text)
 {
+    std::ostringstream outputStringStream;
+
     if (start)
     {
-        return decorator + "< " + text + " >" + decorator;
+        outputStringStream << decorator << "< " + text << " >" << decorator << std::endl
+                           << std::endl;
+        return outputStringStream.str();
     }
     else
     {
-        return decorator + "< / " + text + " >" + decorator + "\n";
+        outputStringStream << decorator << "< / " << text << " >" << decorator << std::endl
+                           << std::endl;
+        return outputStringStream.str();
     }
 }
 
-void read_input(ifstream &inputFileStream, End_Production &endProductionDepartment, Raw_Material &rawMaterialDepartment, Transport &transportDepartment, Worker_Statement &workerStatementDepartment)
+void read_input(std::ifstream &inputFileStream, End_Production &endProductionDepartment, Raw_Material &rawMaterialDepartment, Transport &transportDepartment, Worker_Statement &workerStatementDepartment)
 {
-    string line;
+    std::string line;
 
     while (inputFileStream.good())
     {
         getline(inputFileStream, line);
 
-        istringstream line_stream(line);
+        std::istringstream line_stream(line);
 
-        string departmentName;
+        std::string departmentName;
 
         // Get department name
         while (line_stream.good())
@@ -166,7 +138,7 @@ void read_input(ifstream &inputFileStream, End_Production &endProductionDepartme
             getline(line_stream, departmentName, ':');
         }
 
-        vector<vector<string>> sub_string_lines;
+        std::vector<std::vector<std::string>> sub_string_lines;
 
         while (getline(inputFileStream, line))
         {
@@ -176,12 +148,12 @@ void read_input(ifstream &inputFileStream, End_Production &endProductionDepartme
                 break;
             }
 
-            vector<string> sub_strings;
-            istringstream line_stream(line);
+            std::vector<std::string> sub_strings;
+            std::istringstream line_stream(line);
 
             while (line_stream.good())
             {
-                string substr;
+                std::string substr;
 
                 getline(line_stream, substr, ',');
                 substr = std::regex_replace(substr, std::regex("^ +| +$|( ) +"), "$1");
@@ -210,11 +182,11 @@ void read_input(ifstream &inputFileStream, End_Production &endProductionDepartme
     }
 }
 
-void read_department(vector<vector<string>> &sub_string_lines, End_Production &endProductionDepartment)
+void read_department(std::vector<std::vector<std::string>> &sub_string_lines, End_Production &endProductionDepartment)
 {
-    for (vector<string> sub_string_line : sub_string_lines)
+    for (std::vector<std::string> sub_string_line : sub_string_lines)
     {
-        string productType = sub_string_line.at(0);
+        std::string productType = sub_string_line.at(0);
         float cost = stof(sub_string_line.at(1));
         float price = stof(sub_string_line.at(2));
         float chemicalCombinationSo3 = stof(sub_string_line.at(3));
@@ -227,12 +199,12 @@ void read_department(vector<vector<string>> &sub_string_lines, End_Production &e
     }
 }
 
-void read_department(vector<vector<string>> &sub_string_lines, Raw_Material &rawMaterialDepartment)
+void read_department(std::vector<std::vector<std::string>> &sub_string_lines, Raw_Material &rawMaterialDepartment)
 {
-    for (vector<string> sub_string_line : sub_string_lines)
+    for (std::vector<std::string> sub_string_line : sub_string_lines)
     {
-        string materialType = sub_string_line.at(0);
-        string materialQulaity = sub_string_line.at(1);
+        std::string materialType = sub_string_line.at(0);
+        std::string materialQulaity = sub_string_line.at(1);
         long cost = stol(sub_string_line.at(2));
         int suppliedQuantity = stoi(sub_string_line.at(3));
         int safetyStock = stoi(sub_string_line.at(4));
@@ -243,11 +215,11 @@ void read_department(vector<vector<string>> &sub_string_lines, Raw_Material &raw
         rawMaterialDepartment.addMaterial(materialType, materialQulaity, cost, suppliedQuantity, safetyStock, availableStock, orderedStock, stockDuration);
     }
 }
-void read_department(vector<vector<string>> &sub_string_lines, Transport &transportDepartment)
+void read_department(std::vector<std::vector<std::string>> &sub_string_lines, Transport &transportDepartment)
 {
-    for (vector<string> sub_string_line : sub_string_lines)
+    for (std::vector<std::string> sub_string_line : sub_string_lines)
     {
-        string transferableType = sub_string_line.at(0);
+        std::string transferableType = sub_string_line.at(0);
         float fuelIssued = stof(sub_string_line.at(1));
         float averageFuelConsumption = stof(sub_string_line.at(2));
         float kilometersDone = stof(sub_string_line.at(3));
@@ -255,12 +227,12 @@ void read_department(vector<vector<string>> &sub_string_lines, Transport &transp
         transportDepartment.addTransferable(transferableType, fuelIssued, averageFuelConsumption, kilometersDone);
     }
 }
-void read_department(vector<vector<string>> &sub_string_lines, Worker_Statement &workerStatementDepartment)
+void read_department(std::vector<std::vector<std::string>> &sub_string_lines, Worker_Statement &workerStatementDepartment)
 {
-    for (vector<string> sub_string_line : sub_string_lines)
+    for (std::vector<std::string> sub_string_line : sub_string_lines)
     {
-        string workerName = sub_string_line.at(0);
-        string workerType = sub_string_line.at(1);
+        std::string workerName = sub_string_line.at(0);
+        std::string workerType = sub_string_line.at(1);
         int workingHoursInTheMonth = stoi(sub_string_line.at(2));
         int fixWorkingHoursPerDay = stoi(sub_string_line.at(3));
         int paymentForADay = stoi(sub_string_line.at(4));

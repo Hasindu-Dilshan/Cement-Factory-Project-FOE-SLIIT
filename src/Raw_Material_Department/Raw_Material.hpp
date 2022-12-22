@@ -5,8 +5,6 @@
 #include "../common/Department.hpp"
 #include "Material.hpp"
 
-using namespace std;
-
 class Raw_Material : public Department
 {
 private:
@@ -22,11 +20,11 @@ public:
 	static int getMaterialCount();
 
 	// Manipulate Materials
-	void addMaterial(string materialType, string materialQulaity, long cost, int suppliedQuantity, int safetystock,
+	void addMaterial(std::string materialType, std::string materialQulaity, long cost, int suppliedQuantity, int safetystock,
 					 int availableStock, int orderedStock, int stockDuration);
 	void removeMaterial(int materialID);
 	void getMaterial(int materialID);
 
-	const string toString();
-	const string toString(int materialID) const;
+	const std::string toString();
+	const std::string toString(int materialID) const;
 };

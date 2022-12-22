@@ -19,10 +19,10 @@ public:
 	static int getWorkerCount();
 
 	// Manipulate Workers
-	void addWorker(string workerName, string workerType, int workingHoursInTheMonth, int fixWorkingHoursPerDay, int paymentForADay, int overtimeHours, int overtimePaymentPerHour);
+	void addWorker(std::string workerName, std::string workerType, int workingHoursInTheMonth, int fixWorkingHoursPerDay, int paymentForADay, int overtimeHours, int overtimePaymentPerHour);
 	void removeWorker(int productID);
 	void getWorker(int productID);
 
-	const string toString();
-	const string toString(int productID) const;
+	const std::string toString();
+	const std::string toString(int productID) const;
 };

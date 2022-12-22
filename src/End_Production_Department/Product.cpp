@@ -5,15 +5,13 @@
 
 #include "Product.hpp"
 
-using namespace std;
-
 // Default Constructor
 Product::Product()
 {
 }
 
 // Overloaded Constructor
-Product::Product(int productID, string productType, float cost, float price, float chemicalCombinationSo3, float chemicalCombinationChloride, int prodQuantity, int reqProdQuantity, int stockDuration)
+Product::Product(int productID, std::string productType, float cost, float price, float chemicalCombinationSo3, float chemicalCombinationChloride, int prodQuantity, int reqProdQuantity, int stockDuration)
 {
 	this->productID = productID;
 	this->productType = productType;
@@ -32,8 +30,8 @@ Product::Product(int productID, string productType, float cost, float price, flo
 // Destructor
 Product::~Product()
 {
-	cout << "[+] Product id:" << productID << " " << productType << " Removed Successfully!" << endl
-		 << endl;
+	std::cout << "[+] Product id:" << productID << " " << productType << " Removed Successfully!" << std::endl
+		 << std::endl;
 }
 
 // Callculate Profit
@@ -53,19 +51,19 @@ void Product::displayProdDetails()
 {
 	const int max_width = 35;
 
-	cout << setw(max_width) << "Product: " << productType << endl;
-	cout << setw(max_width) << "Chemical Combination SO3: " << chemicalCombinationSo3 << "%" << endl;
-	cout << setw(max_width) << "Chemical Combination Chloride: " << chemicalCombinationChloride << "%" << endl;
-	cout << setw(max_width) << "Stock Availability: " << stockDuration << " months" << endl;
-	cout << endl;
+	std::cout << std::setw(max_width) << "Product: " << productType << std::endl;
+	std::cout << std::setw(max_width) << "Chemical Combination SO3: " << chemicalCombinationSo3 << "%" << std::endl;
+	std::cout << std::setw(max_width) << "Chemical Combination Chloride: " << chemicalCombinationChloride << "%" << std::endl;
+	std::cout << std::setw(max_width) << "Stock Availability: " << stockDuration << " months" << std::endl;
+	std::cout << std::endl;
 
-	cout << "[*] Profit: " << profit << endl;
-	cout << "[*] No. of products produced than the demand: " << demand << endl
-		 << endl;
+	std::cout << "[*] Profit: " << profit << std::endl;
+	std::cout << "[*] No. of products produced than the demand: " << demand << std::endl
+		 << std::endl;
 }
 
 // Getters
-string Product::getProductType()
+std::string Product::getProductType()
 {
 	return productType;
 }
@@ -107,7 +105,7 @@ int Product::getDemand()
 }
 
 // Setters
-void Product::setProductType(string productType)
+void Product::setProductType(std::string productType)
 {
 	this->productType = productType;
 }
@@ -140,23 +138,23 @@ void Product::setStockDuration(int stockDuration)
 	this->stockDuration = stockDuration;
 }
 
-const string Product::toString() const
+const std::string Product::toString() const
 {
-	ostringstream buffer;
+	std::ostringstream buffer;
 
-	buffer << fixed << showpoint << setprecision(2)
-		   << "productID: " << productID << endl
-		   << "productType: " << productType << endl
-		   << "cost: " << cost << endl
-		   << "price: " << price << endl
-		   << "chemicalCombinationSo3: " << chemicalCombinationSo3 << endl
-		   << "chemicalCombinationChloride: " << chemicalCombinationChloride << endl
-		   << "prodQuantity: " << prodQuantity << endl
-		   << "reqProdQuantity: " << reqProdQuantity << endl
-		   << "stockDuration: " << stockDuration << endl
-		   << "profit: " << profit << endl
-		   << "demand: " << demand << endl
-		   << endl;
+	buffer << std::fixed << std::showpoint << std::setprecision(2)
+		   << "productID: " << productID << std::endl
+		   << "productType: " << productType << std::endl
+		   << "cost: " << cost << std::endl
+		   << "price: " << price << std::endl
+		   << "chemicalCombinationSo3: " << chemicalCombinationSo3 << std::endl
+		   << "chemicalCombinationChloride: " << chemicalCombinationChloride << std::endl
+		   << "prodQuantity: " << prodQuantity << std::endl
+		   << "reqProdQuantity: " << reqProdQuantity << std::endl
+		   << "stockDuration: " << stockDuration << std::endl
+		   << "profit: " << profit << std::endl
+		   << "demand: " << demand << std::endl
+		   << std::endl;
 
 	return buffer.str();
 }

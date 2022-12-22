@@ -2,32 +2,30 @@
 
 #include <string>
 
-using namespace std;
-
 const int maxMemberCount = 50;
 
-class Department{
+class Department
+{
 private:
 	static int idCount;
 
 protected:
 	int id;
-	string depName;
+	std::string depName;
 
 public:
 	Department();
-	Department(string depName);
-		 
+	Department(std::string depName);
+
 	~Department();
 
 	void countDep();
 
 	// Getters
 	int getId();
-	string getName();
+	std::string getName();
 
 	// Setters
 	void setId();
-	void setName(string depName);
-	
+	void setName(std::string depName);
 };

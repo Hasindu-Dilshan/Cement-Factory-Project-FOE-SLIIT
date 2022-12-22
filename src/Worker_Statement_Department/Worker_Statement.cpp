@@ -29,7 +29,7 @@ int Worker_Statement::getWorkerCount()
 	return workerCount;
 }
 
-void Worker_Statement::addWorker(string workerName, string workerType, int workingHoursInTheMonth, int fixWorkingHoursPerDay, int paymentForADay, int overtimeHours, int overtimePaymentPerHour)
+void Worker_Statement::addWorker(std::string workerName, std::string workerType, int workingHoursInTheMonth, int fixWorkingHoursPerDay, int paymentForADay, int overtimeHours, int overtimePaymentPerHour)
 {
 
 	if (workerCount < maxMemberCount)
@@ -40,7 +40,7 @@ void Worker_Statement::addWorker(string workerName, string workerType, int worki
 	}
 	else
 	{
-		cout << "[-] Department is already full!" << endl;
+		std::cout << "[-] Department is already full!" << std::endl;
 	}
 }
 
@@ -54,21 +54,21 @@ void Worker_Statement::getWorker(int workerID)
 {
 	if (workerArray[workerID] != nullptr)
 	{
-		cout << "--------------------------------------------------------------------" << endl
-			 << endl;
+		std::cout << "--------------------------------------------------------------------" << std::endl
+			 << std::endl;
 
 		workerArray[workerID]->displayworkerTypeDetails();
 	}
 	else
 	{
-		cout << "[-] Requested worker is not available!" << endl
-			 << endl;
+		std::cout << "[-] Requested worker is not available!" << std::endl
+			 << std::endl;
 	}
 }
 
-const string Worker_Statement::toString()
+const std::string Worker_Statement::toString()
 {
-	ostringstream all_buffer;
+	std::ostringstream all_buffer;
 
 	for (int workerID = 0; workerID < workerCount; workerID++)
 	{
@@ -80,7 +80,7 @@ const string Worker_Statement::toString()
 
 // const(1) : Make string immutable during return mechanism
 // const(2) : Read-only access to class's data members
-const string Worker_Statement::toString(int workerID) const
+const std::string Worker_Statement::toString(int workerID) const
 {
 	return workerArray[workerID]->toString();
 }

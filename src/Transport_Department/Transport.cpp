@@ -7,56 +7,67 @@
 
 using namespace std;
 
-Transferable* transferableArray[maxMemberCount];
+Transferable *transferableArray[maxMemberCount];
 
 // Initialize transferable count
 int Transport::transferableCount = 0;
 
 // Destructor
-Transport::~Transport(){
+Transport::~Transport()
+{
 	// Super class destructor is sufficient
 }
 
 // Increment object count after each object creation
-void Transport::countTransferables() {
+void Transport::countTransferables()
+{
 	Transport::transferableCount++;
 }
 
-int Transport::getTransferableCount() { 
-	return transferableCount; 
+int Transport::getTransferableCount()
+{
+	return transferableCount;
 }
 
-void Transport::addTransferable(string transferableType, float fuelIssued, float averageFuelConsumption, float kilometersDone) {
+void Transport::addTransferable(std::string transferableType, float fuelIssued, float averageFuelConsumption, float kilometersDone)
+{
 
-	if(transferableCount < maxMemberCount) {
+	if (transferableCount < maxMemberCount)
+	{
 		transferableArray[transferableCount] = new Transferable(transferableCount, transferableType, fuelIssued, averageFuelConsumption, kilometersDone);
 
 		countTransferables();
 	}
-	else {
-		cout << "[-] Department is already full!" << endl;
+	else
+	{
+		std::cout << "[-] Department is already full!" << std::endl;
 	}
-
 }
 
-void Transport::removeTransferable(int transferableID) {
+void Transport::removeTransferable(int transferableID)
+{
 	delete transferableArray[transferableID];
 	transferableArray[transferableID] = nullptr;
 }
 
-void Transport::getTransferable(int transferableID) {
-	if(transferableArray[transferableID] != nullptr){
-		cout << "--------------------------------------------------------------------" << endl << endl;
-		transferableArray[transferableID] -> displayTransferableDetails();
+void Transport::getTransferable(int transferableID)
+{
+	if (transferableArray[transferableID] != nullptr)
+	{
+		std::cout << "--------------------------------------------------------------------" << std::endl
+				  << std::endl;
+		transferableArray[transferableID]->displayTransferableDetails();
 	}
-	else {
-		cout << "[-] Requested transferable is not available!" << endl << endl;
+	else
+	{
+		std::cout << "[-] Requested transferable is not available!" << std::endl
+				  << std::endl;
 	}
 }
 
-const string Transport::toString()
+const std::string Transport::toString()
 {
-	ostringstream all_buffer;
+	std::ostringstream all_buffer;
 
 	for (int transferableID = 0; transferableID < transferableCount; transferableID++)
 	{
@@ -68,7 +79,7 @@ const string Transport::toString()
 
 // const(1) : Make string immutable during return mechanism
 // const(2) : Read-only access to class's data members
-const string Transport::toString(int transferableID) const
+const std::string Transport::toString(int transferableID) const
 {
 	return transferableArray[transferableID]->toString();
 }

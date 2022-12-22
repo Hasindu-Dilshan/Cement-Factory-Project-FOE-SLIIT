@@ -3,13 +3,11 @@
 #include <string>
 #include <iostream>
 
-using namespace std;
-
 class Worker {
 private:
 	int workerID;
-	string workerName;
-	string workerType;
+	std::string workerName;
+	std::string workerType;
 	int workingHoursInTheMonth;
 	int fixedWorkingHoursPerDay;
 	int paymentForADay;
@@ -21,7 +19,7 @@ private:
 public:
 	Worker();
 	
-	Worker(int workerID, string workerName, string workerType, int workingHoursInTheMonth, int fixedWorkingHoursPerDay, int paymentForADay, int overTimeHours, int overTimePaymentPerHour);
+	Worker(int workerID, std::string workerName, std::string workerType, int workingHoursInTheMonth, int fixedWorkingHoursPerDay, int paymentForADay, int overTimeHours, int overTimePaymentPerHour);
 		 
 	~Worker();
 
@@ -30,8 +28,8 @@ public:
 	void displayworkerTypeDetails();
 
 	//Getters
-	string getWorkerName();
-	string getWorkerType();
+	std::string getWorkerName();
+	std::string getWorkerType();
 	float getWorkingHoursInTheMonth();
 	int getFixedWorkingHoursPerDay();
 	float getPaymentForADay();
@@ -41,13 +39,13 @@ public:
 	float getSalary();
 
 	// Setters
-	void setWorkerName(string workerName);
-	void setWorkerType(string workerType);
+	void setWorkerName(std::string workerName);
+	void setWorkerType(std::string workerType);
 	void setWorkingHoursInTheMonth(int workingHoursInTheMonth);
 	void setFixedWorkingHoursPerDay(int fixWorkWingHoursPerDay);
 	void setPaymentForADay(int paymentForADay);
 	void setOverTimeHours(int overTimeHours);
 	void setOverTimePaymentPerHour(int overTimePaymentPerHour);
 
-	const string toString() const;
+	const std::string toString() const;
 };

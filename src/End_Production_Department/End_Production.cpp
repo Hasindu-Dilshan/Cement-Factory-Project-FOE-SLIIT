@@ -5,8 +5,6 @@
 
 #include "End_Production.hpp"
 
-using namespace std;
-
 Product *productArray[maxMemberCount];
 
 // Initialize product count
@@ -29,17 +27,19 @@ int End_Production::getProductCount()
 	return productCount;
 }
 
-void End_Production::addProduct(string productType, float cost, float price, float chemicalCombinationSo3, float chemicalCombinationChloride, int prodQuantity, int reqProdQuantity, int stockDuration)
+void End_Production::addProduct(std::string productType, float cost, float price, float chemicalCombinationSo3,
+								float chemicalCombinationChloride, int prodQuantity, int reqProdQuantity, int stockDuration)
 {
 	if (productCount < maxMemberCount)
 	{
-		productArray[productCount] = new Product(productCount, productType, cost, price, chemicalCombinationSo3, chemicalCombinationChloride, prodQuantity, reqProdQuantity, stockDuration);
+		productArray[productCount] = new Product(productCount, productType, cost, price, chemicalCombinationSo3,
+												 chemicalCombinationChloride, prodQuantity, reqProdQuantity, stockDuration);
 
 		countProduct();
 	}
 	else
 	{
-		cout << "[-] Department is already full!" << endl;
+		std::cout << "[-] Department is already full!" << std::endl;
 	}
 }
 
@@ -53,20 +53,20 @@ void End_Production::getProduct(int productID)
 {
 	if (productArray[productID] != nullptr)
 	{
-		cout << "--------------------------------------------------------------------" << endl
-			 << endl;
+		std::cout << "--------------------------------------------------------------------" << std::endl
+				  << std::endl;
 		productArray[productID]->displayProdDetails();
 	}
 	else
 	{
-		cout << "[-] Requested prouduct is not available!" << endl
-			 << endl;
+		std::cout << "[-] Requested prouduct is not available!" << std::endl
+				  << std::endl;
 	}
 }
 
-const string End_Production::toString()
+const std::string End_Production::toString()
 {
-	ostringstream all_buffer;
+	std::ostringstream all_buffer;
 
 	for (int productID = 0; productID < productCount; productID++)
 	{
@@ -78,7 +78,7 @@ const string End_Production::toString()
 
 // const(1) : Make string immutable during return mechanism
 // const(2) : Read-only access to class's data members
-const string End_Production::toString(int productID) const
+const std::string End_Production::toString(int productID) const
 {
 	return productArray[productID]->toString();
 }

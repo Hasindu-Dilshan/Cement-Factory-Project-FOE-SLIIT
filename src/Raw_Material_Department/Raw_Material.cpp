@@ -5,8 +5,6 @@
 
 #include "Raw_Material.hpp"
 
-using namespace std;
-
 Material *materialArray[maxMemberCount];
 
 int Raw_Material::materialCount = 0;
@@ -26,7 +24,8 @@ int Raw_Material::getMaterialCount()
 	return materialCount;
 }
 
-void Raw_Material::addMaterial(string materialType, string materialQulaity, long cost, int suppliedQuantity, int safetyStock, int availableStock, int orderedStock, int stockDuration)
+void Raw_Material::addMaterial(std::string materialType, std::string materialQulaity, long cost, int suppliedQuantity,
+								int safetyStock, int availableStock, int orderedStock, int stockDuration)
 {
 	if (materialCount < maxMemberCount)
 	{
@@ -35,7 +34,7 @@ void Raw_Material::addMaterial(string materialType, string materialQulaity, long
 	}
 	else
 	{
-		cout << "[-] Department is already full!" << endl;
+		std::cout << "[-] Department is already full!" << std::endl;
 	}
 }
 
@@ -49,20 +48,20 @@ void Raw_Material::getMaterial(int materialID)
 {
 	if (materialArray[materialID] != nullptr)
 	{
-		cout << "--------------------------------------------------------------------" << endl
-			 << endl;
+		std::cout << "--------------------------------------------------------------------" << std::endl
+			 << std::endl;
 		materialArray[materialID]->displayProdDetails();
 	}
 	else
 	{
-		cout << "[-] Requested material is not available!" << endl
-			 << endl;
+		std::cout << "[-] Requested material is not available!" << std::endl
+			 << std::endl;
 	}
 }
 
-const string Raw_Material::toString()
+const std::string Raw_Material::toString()
 {
-	ostringstream all_buffer;
+	std::ostringstream all_buffer;
 
 	for (int materialID = 0; materialID < materialCount; materialID++)
 	{
@@ -74,7 +73,7 @@ const string Raw_Material::toString()
 
 // const(1) : Make string immutable during return mechanism
 // const(2) : Read-only access to class's data members
-const string Raw_Material::toString(int materialID) const
+const std::string Raw_Material::toString(int materialID) const
 {
 	return materialArray[materialID]->toString();
 }
