@@ -22,7 +22,7 @@ public:
 	static int getMaterialCount();
 
 	// Manipulate Materials
-	void addMaterial(string materialType, string materialQulaity, float cost, int suppliedQuantity, int safetystock, int availableStock, int orderdStock, int stockDuration);
+	void addMaterial(string materialType, string materialQulaity, float cost, int suppliedQuantity, int safetystock, int availableStock, int orderedStock, int stockDuration);
 	void removeMaterial(int materialID);
 	void getMaterial(int materialID);
 

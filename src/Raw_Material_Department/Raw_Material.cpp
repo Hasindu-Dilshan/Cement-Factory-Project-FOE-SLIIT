@@ -26,12 +26,14 @@ int Raw_Material::getMaterialCount()
 	return materialCount;
 }
 
-void Raw_Material::addMaterial(string materialType, string materialQulaity, float cost, int suppliedQuantity, int safetyStock, int availableStock, int orderdStock, int stockDuration)
+void Raw_Material::addMaterial(string materialType, string materialQulaity, float cost, int suppliedQuantity, int safetyStock, int availableStock, int orderedStock, int stockDuration)
 {
 	if (materialCount < maxMemberCount)
 	{
 		cout << "Raw_Material.cpp > availableStock=" << availableStock << endl;
-		materialArray[materialCount] = new Material(materialCount, materialType, materialQulaity, cost, suppliedQuantity, safetyStock, availableStock, orderdStock, stockDuration);
+		materialArray[materialCount] = new Material(materialCount, materialType, materialQulaity, cost, suppliedQuantity, safetyStock, availableStock, orderedStock, stockDuration);
+		cout << "Raw_Material.cpp > availableStock(after assignation)=" << availableStock << endl;
+		cout << "materialArray[6]:getAvailableStock()=" << materialArray[materialCount]->getAvailableStock() << endl;
 		countMaterial();
 	}
 	else
