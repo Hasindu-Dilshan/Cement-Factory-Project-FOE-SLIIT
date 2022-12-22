@@ -1,5 +1,5 @@
 output.o: src/common/Department.o src/End_Production_Department/End_Production.o src/End_Production_Department/Product.o src/Raw_Material_Department/Raw_Material.o src/Raw_Material_Department/Material.o src/Transport_Department/Transport.o src/Transport_Department/Transferable.o src/Worker_Statement_Department/Worker_Statement.o src/Worker_Statement_Department/Worker.o test/main.o
-	g++ src/*/*.o test/main.o -o test/main.exe
+	g++ src/*/*.o test/main.o -o test/main
 
 Department.o: src/common/Department.cpp
 	g++ -c src/common/Department.cpp

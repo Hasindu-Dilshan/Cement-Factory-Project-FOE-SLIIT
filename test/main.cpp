@@ -38,7 +38,6 @@ int main()
     endProductionDepartment.removeProduct(0);
 
     endProductionDepartment.getProduct(0);
-    endProductionDepartment.getProduct(1);
 
     std::cout << decorate(decorator, false, endProductionDepartment.getName());
 
@@ -51,7 +50,6 @@ int main()
     rawMaterialDepartment.removeMaterial(0);
 
     rawMaterialDepartment.getMaterial(0);
-    rawMaterialDepartment.getMaterial(1);
 
     std::cout << decorate(decorator, false, rawMaterialDepartment.getName());
 
@@ -64,7 +62,6 @@ int main()
     transportDepartment.removeTransferable(0);
 
     transportDepartment.getTransferable(0);
-    transportDepartment.getTransferable(1);
 
     std::cout << decorate(decorator, false, transportDepartment.getName());
 
@@ -77,7 +74,6 @@ int main()
     workerStatementDepartment.removeWorker(0);
 
     workerStatementDepartment.getWorker(0);
-    workerStatementDepartment.getWorker(1);
 
     std::cout << decorate(decorator, false, workerStatementDepartment.getName());
 
