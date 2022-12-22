@@ -11,7 +11,8 @@ Worker::Worker()
 }
 
 // Overloaded Constructor
-Worker::Worker(int workerID, std::string workerName, std::string workerType, int workingHoursInTheMonth, int fixedWorkingHoursPerDay, int paymentForADay, int overTimeHours, int overTimePaymentPerHour)
+Worker::Worker(int workerID, std::string workerName, std::string workerType, int workingHoursInTheMonth, int fixedWorkingHoursPerDay, 
+				int paymentForADay, int overTimeHours, int overTimePaymentPerHour)
 {
 	this->workerID = workerID;
 	this->workerName = workerName;

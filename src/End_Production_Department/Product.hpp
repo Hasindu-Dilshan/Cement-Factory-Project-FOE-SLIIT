@@ -21,7 +21,8 @@ private:
 public:
 	Product();
 
-	Product(int productID, std::string productType, float cost, float price, float chemicalCombinationSo3, float chemicalCombinationChloride, int prodQuantity, int reqProdQuantity, int stockDuration);
+	Product(int productID, std::string productType, float cost, float price, float chemicalCombinationSo3, 
+			float chemicalCombinationChloride, int prodQuantity, int reqProdQuantity, int stockDuration);
 
 	~Product();
 

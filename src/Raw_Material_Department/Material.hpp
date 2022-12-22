@@ -20,8 +20,8 @@ private:
 
 public:
     Material();
-    Material(int materialID, std::string materialType, std::string materialQulaity, long cost, int suppliedQuantity, int safetyStock,
-             int availableStock, int orderedStock, int stockDuration);
+    Material(int materialID, std::string materialType, std::string materialQulaity, long cost, int suppliedQuantity, 
+            int safetyStock, int availableStock, int orderedStock, int stockDuration);
 
     ~Material();
 

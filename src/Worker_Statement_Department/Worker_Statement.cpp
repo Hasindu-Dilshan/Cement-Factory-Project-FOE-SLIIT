@@ -29,12 +29,14 @@ int Worker_Statement::getWorkerCount()
 	return workerCount;
 }
 
-void Worker_Statement::addWorker(std::string workerName, std::string workerType, int workingHoursInTheMonth, int fixWorkingHoursPerDay, int paymentForADay, int overtimeHours, int overtimePaymentPerHour)
+void Worker_Statement::addWorker(std::string workerName, std::string workerType, int workingHoursInTheMonth, int fixWorkingHoursPerDay, 
+								int paymentForADay, int overtimeHours, int overtimePaymentPerHour)
 {
 
 	if (workerCount < maxMemberCount)
 	{
-		workerArray[workerCount] = new Worker(workerCount, workerName, workerType, workingHoursInTheMonth, fixWorkingHoursPerDay, paymentForADay, overtimeHours, overtimePaymentPerHour);
+		workerArray[workerCount] = new Worker(workerCount, workerName, workerType, workingHoursInTheMonth, fixWorkingHoursPerDay, 
+												paymentForADay, overtimeHours, overtimePaymentPerHour);
 
 		countWorker();
 	}

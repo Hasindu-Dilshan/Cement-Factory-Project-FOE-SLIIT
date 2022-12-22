@@ -11,7 +11,8 @@ Product::Product()
 }
 
 // Overloaded Constructor
-Product::Product(int productID, std::string productType, float cost, float price, float chemicalCombinationSo3, float chemicalCombinationChloride, int prodQuantity, int reqProdQuantity, int stockDuration)
+Product::Product(int productID, std::string productType, float cost, float price, float chemicalCombinationSo3, 
+				float chemicalCombinationChloride, int prodQuantity, int reqProdQuantity, int stockDuration)
 {
 	this->productID = productID;
 	this->productType = productType;

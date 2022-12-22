@@ -19,7 +19,8 @@ private:
 public:
 	Worker();
 	
-	Worker(int workerID, std::string workerName, std::string workerType, int workingHoursInTheMonth, int fixedWorkingHoursPerDay, int paymentForADay, int overTimeHours, int overTimePaymentPerHour);
+	Worker(int workerID, std::string workerName, std::string workerType, int workingHoursInTheMonth, int fixedWorkingHoursPerDay, 
+			int paymentForADay, int overTimeHours, int overTimePaymentPerHour);
 		 
 	~Worker();
 

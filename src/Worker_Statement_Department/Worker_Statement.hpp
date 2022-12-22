@@ -19,7 +19,8 @@ public:
 	static int getWorkerCount();
 
 	// Manipulate Workers
-	void addWorker(std::string workerName, std::string workerType, int workingHoursInTheMonth, int fixWorkingHoursPerDay, int paymentForADay, int overtimeHours, int overtimePaymentPerHour);
+	void addWorker(std::string workerName, std::string workerType, int workingHoursInTheMonth, int fixWorkingHoursPerDay, 
+					int paymentForADay, int overtimeHours, int overtimePaymentPerHour);
 	void removeWorker(int productID);
 	void getWorker(int productID);
 

@@ -13,7 +13,8 @@ Material::Material()
 }
 
 // Overloaded Constructor
-Material::Material(int materialID, string materialType, string materialQulaity, long cost, int suppliedQuantity, int safetyStock, int availableStock, int orderedStock, int stockDuration)
+Material::Material(int materialID, string materialType, string materialQulaity, long cost, int suppliedQuantity, 
+					int safetyStock, int availableStock, int orderedStock, int stockDuration)
 {
 	this->materialID = materialID;
 	this->materialType = materialType;
