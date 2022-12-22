@@ -3,10 +3,10 @@
 #include <string>
 #include <iostream>
 
-
 using namespace std;
 
-class Product {
+class Product
+{
 private:
 	int productID;
 	string productType;
@@ -17,12 +17,14 @@ private:
 	int prodQuantity;
 	int reqProdQuantity;
 	int stockDuration;
+	float profit;
+	int demand;
 
 public:
 	Product();
-	
+
 	Product(int productID, string productType, float cost, float price, float chemicalCombinationSo3, float chemicalCombinationChloride, int prodQuantity, int reqProdQuantity, int stockDuration);
-		 
+
 	~Product();
 
 	void calcProfit();
@@ -38,6 +40,8 @@ public:
 	int getProdQuantity();
 	int getReqProdQuantity();
 	int getStockDuration();
+	float getProfit();
+	int getDemand();
 
 	// Setters
 	void setProductType(string productType);

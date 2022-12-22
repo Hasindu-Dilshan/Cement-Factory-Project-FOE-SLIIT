@@ -25,6 +25,9 @@ Material::Material(int materialID, string materialType, string materialQulaity, 
 	cout << "Material.cpp > availableStock=" << availableStock << endl;
 	this->orderedStock = orderedStock;
 	this->stockDuration = stockDuration;
+
+	calcFullStock();
+	calcEndStock();
 }
 
 // Destructor
@@ -36,16 +39,11 @@ Material::~Material()
 
 void Material::calcFullStock()
 {
-	float fullStock = availableStock + safetyStock;
-
-	cout << "[*] Fullstock: " << fullStock << " Ton" << endl;
+	this->fullStock = availableStock + safetyStock;
 }
 void Material::calcEndStock()
 {
-	float endStock = (availableStock + safetyStock) - suppliedQuantity;
-
-	cout << "[*] Balance raw material stock: " << endStock << "Ton" << endl
-		 << endl;
+	this->endStock = (availableStock + safetyStock) - suppliedQuantity;
 }
 void Material::displayProdDetails()
 {
@@ -60,8 +58,9 @@ void Material::displayProdDetails()
 	cout << setw(max_width) << "Availablestock till: " << stockDuration << " months" << endl;
 	cout << endl;
 
-	calcFullStock();
-	calcEndStock();
+	cout << setw(max_width) << "[*] Fullstock: " << fullStock << " Ton" << endl;
+	cout << setw(max_width) << "[*] Balance raw material stock: " << endStock << "Ton" << endl
+		 << endl;
 }
 
 // Getters
@@ -146,6 +145,8 @@ const string Material::toString() const
 		   << "availableStock: " << availableStock << endl
 		   << "orderedStock: " << orderedStock << endl
 		   << "stockDuration: " << stockDuration << endl
+		   << "fullStock: " << fullStock << endl
+		   << "endStock: " << endStock << endl
 		   << endl;
 
 	return buffer.str();

@@ -15,6 +15,8 @@ private:
 	int paymentForADay;
 	int overTimeHours;
 	int overTimePaymentPerHour;
+	int workingDays;
+	float salary;
 
 public:
 	Worker();
@@ -35,6 +37,8 @@ public:
 	float getPaymentForADay();
 	float getOverTimeHours();
 	float getOverTimePaymentPerHour();
+	int getWorkingDays();
+	float getSalary();
 
 	// Setters
 	void setWorkerName(string workerName);

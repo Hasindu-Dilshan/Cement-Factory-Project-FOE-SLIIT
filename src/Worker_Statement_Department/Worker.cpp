@@ -23,6 +23,9 @@ Worker::Worker(int workerID, string workerName, string workerType, int workingHo
 	this->paymentForADay = paymentForADay;
 	this->overTimeHours = overTimeHours;
 	this->overTimePaymentPerHour = overTimePaymentPerHour;
+
+	calcWorkingDaysForTheMonth();
+	calcSalary();
 }
 
 // Destructor
@@ -34,16 +37,12 @@ Worker::~Worker()
 
 void Worker::calcWorkingDaysForTheMonth()
 {
-	float workingDays = (workingHoursInTheMonth / fixWorkingHoursPerDay);
-
-	cout << "[*] Working days for the month: " << workingDays << "  days" << endl;
+	this->workingDays = (int)((float)workingHoursInTheMonth / fixWorkingHoursPerDay);
 }
 
 void Worker::calcSalary()
 {
-	float salary = ((workingHoursInTheMonth / fixWorkingHoursPerDay) * paymentForADay) + (overTimeHours * overTimePaymentPerHour);
-
-	cout << "[*] Salary: Rs." << salary << " /=" << endl;
+	this->salary = (((float)workingHoursInTheMonth / fixWorkingHoursPerDay) * paymentForADay) + (overTimeHours * overTimePaymentPerHour);
 }
 
 void Worker::displayworkerTypeDetails()
@@ -60,6 +59,9 @@ void Worker::displayworkerTypeDetails()
 	cout << setw(max_width) << "Overtime Payment per Hour: "
 		 << "Rs." << overTimePaymentPerHour << " /=" << endl;
 	cout << endl;
+
+	cout << setw(max_width) << "[*] Working days for the month: " << workingDays << "  days" << endl;
+	cout << setw(max_width) << "[*] Salary: Rs." << salary << " /=" << endl;
 
 	calcWorkingDaysForTheMonth();
 	calcSalary();
@@ -93,6 +95,14 @@ float Worker::getOverTimeHours()
 float Worker::getOverTimePaymentPerHour()
 {
 	return overTimePaymentPerHour;
+}
+int Worker::getWorkingDays()
+{
+	return workingDays;
+}
+float Worker::getSalary()
+{
+	return salary;
 }
 
 // Setters
@@ -138,6 +148,8 @@ const string Worker::toString() const
 		   << "paymentForADay: " << paymentForADay << endl
 		   << "overTimeHours: " << overTimeHours << endl
 		   << "overTimePaymentPerHour: " << overTimePaymentPerHour << endl
+		   << "workingDays: " << workingDays << "  days" << endl
+		   << "salary: " << salary << " /=" << endl
 		   << endl;
 
 	return buffer.str();

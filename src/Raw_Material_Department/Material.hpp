@@ -17,6 +17,8 @@ private:
     int availableStock;
     int orderedStock;
     int stockDuration;
+    float fullStock;
+    float endStock;
 
 public:
     Material();

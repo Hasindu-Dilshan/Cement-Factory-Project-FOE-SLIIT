@@ -20,6 +20,15 @@ Transferable::Transferable(int transferableID, string transferableType, float fu
 	this->fuelIssued = fuelIssued;
 	this->averageFuelConsumption = averageFuelConsumption;
 	this->kilometersDone = kilometersDone;
+
+	cout << ">< Constructor finished 'this' work" << endl;
+
+	calcFuelCost();
+	calcOtherCost();
+	calcTotalCost();
+	calcAvgFuelUsage();
+
+	cout << ">< Functions executed successfully" << endl;
 }
 
 // Destructor
@@ -31,24 +40,24 @@ Transferable::~Transferable()
 
 void Transferable::calcFuelCost()
 {
-	float fuelCost = (fuelIssued * 430);
-	cout << "[*] Fuel Cost: Rs." << fuelCost << endl;
+	this->fuelCost = (fuelIssued * 430);
 }
 void Transferable::calcOtherCost()
 {
-	float otherCosts = (kilometersDone * 30);
-	cout << "[*] Other Cost: Rs." << otherCosts << endl;
+	this->otherCosts = (kilometersDone * 30);
 }
 void Transferable::calcTotalCost()
 {
-	float totalCost = (fuelIssued * 430) + (kilometersDone * 30);
-	cout << "[*] Total Cost: Rs." << totalCost << endl;
+	this->totalCost = (fuelIssued * 430) + (kilometersDone * 30);
 }
 void Transferable::calcAvgFuelUsage()
 {
-	float averageFuelUsage = (fuelIssued) - (kilometersDone / averageFuelConsumption);
-	cout << "[*] clearAverage fuel used (litres): " << averageFuelUsage << endl
-		 << endl;
+	cout << ">< Debug ><" << endl;
+	cout << "fuelIssued: " << fuelIssued << endl;
+	cout << "kilometersDone: " << kilometersDone << endl;
+	cout << "averageFuelConsumption: " << averageFuelConsumption << endl;
+
+	this->averageFuelUsage = (fuelIssued) - ((float)kilometersDone / averageFuelConsumption);
 }
 void Transferable::displayTransferableDetails()
 {
@@ -59,10 +68,16 @@ void Transferable::displayTransferableDetails()
 	cout << setw(max_width) << "Amount of Fuels Issued (litres) : " << fuelIssued << endl;
 	cout << endl;
 
-	calcFuelCost();
-	calcOtherCost();
-	calcTotalCost();
-	calcAvgFuelUsage();
+	cout << setw(max_width) << "[*] Fuel Costs: Rs." << totalCost << endl;
+	cout << setw(max_width) << "[*] Other Costs: Rs." << totalCost << endl;
+	cout << setw(max_width) << "[*] Total Cost: Rs." << totalCost << endl;
+	cout << setw(max_width) << "[*] clearAverage fuel used (litres): " << averageFuelUsage << endl
+		 << endl;
+
+	// calcFuelCost();
+	// calcOtherCost();
+	// calcTotalCost();
+	// calcAvgFuelUsage();
 }
 
 // Getters
@@ -118,11 +133,11 @@ const string Transferable::toString() const
 		   << "transferableType: " << transferableType << endl
 		   << "fuelIssued: " << fuelIssued << endl
 		   << "fuelCost: " << fuelCost << endl
-		   << "otherCost: " << otherCost << endl
+		   << "otherCosts: " << otherCosts << endl
 		   << "averageFuelConsumption: " << averageFuelConsumption << endl
 		   << "kilometersDone: " << kilometersDone << endl
 		   << "totalCost: " << totalCost << endl
-		   << "averagefuelUsage: " << averagefuelUsage << endl
+		   << "averageFuelUsage: " << averageFuelUsage << endl
 		   << endl;
 
 	return buffer.str();

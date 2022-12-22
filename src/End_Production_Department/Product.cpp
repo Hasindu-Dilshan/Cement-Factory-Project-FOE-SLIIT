@@ -24,6 +24,9 @@ Product::Product(int productID, string productType, float cost, float price, flo
 	this->prodQuantity = prodQuantity;
 	this->reqProdQuantity = reqProdQuantity;
 	this->stockDuration = stockDuration;
+
+	calcProfit();
+	calcDemand();
 }
 
 // Destructor
@@ -36,18 +39,13 @@ Product::~Product()
 // Callculate Profit
 void Product::calcProfit()
 {
-	float profit = prodQuantity * (price - cost);
-
-	cout << "[*] Profit: Rs. " << profit << endl;
+	this->profit = prodQuantity * (price - cost);
 }
 
 // Calculate Demand
 void Product::calcDemand()
 {
-	float demand = prodQuantity - reqProdQuantity;
-
-	cout << "[*] No. of products produced than the demand: " << demand << endl
-		 << endl;
+	this->demand = prodQuantity - reqProdQuantity;
 }
 
 // Display Product Details
@@ -59,10 +57,10 @@ void Product::displayProdDetails()
 	cout << setw(max_width) << "Chemical Combination SO3: " << chemicalCombinationSo3 << "%" << endl;
 	cout << setw(max_width) << "Chemical Combination Chloride: " << chemicalCombinationChloride << "%" << endl;
 	cout << setw(max_width) << "Stock Availability: " << stockDuration << " months" << endl;
-	cout << endl;
 
-	calcProfit();
-	calcDemand();
+	cout << setw(max_width) << "[*] Profit: Rs. " << profit << endl;
+	cout << setw(max_width) << "[*] No. of products produced than the demand: " << demand << endl
+		 << endl;
 }
 
 // Getters
@@ -97,6 +95,14 @@ int Product::getReqProdQuantity()
 int Product::getStockDuration()
 {
 	return stockDuration;
+}
+float Product::getProfit()
+{
+	return profit;
+}
+int Product::getDemand()
+{
+	return demand;
 }
 
 // Setters
@@ -147,6 +153,8 @@ const string Product::toString() const
 		   << "prodQuantity: " << prodQuantity << endl
 		   << "reqProdQuantity: " << reqProdQuantity << endl
 		   << "stockDuration: " << stockDuration << endl
+		   << "profit: " << profit << endl
+		   << "demand: " << demand << endl
 		   << endl;
 
 	return buffer.str();

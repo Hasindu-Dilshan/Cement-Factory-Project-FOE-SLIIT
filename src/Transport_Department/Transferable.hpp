@@ -12,11 +12,11 @@ private:
 	string transferableType;
 	float fuelIssued;
 	float fuelCost;
-	float otherCost;
+	float otherCosts;
 	float averageFuelConsumption;
 	float kilometersDone;
 	float totalCost;
-	float averagefuelUsage;
+	float averageFuelUsage;
 
 public:
 	Transferable();
