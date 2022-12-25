@@ -28,7 +28,7 @@ int EndProduction::getProductCount()
 }
 
 void EndProduction::addProduct(std::string productType, float cost, float price, float chemicalCombinationSo3,
-								float chemicalCombinationChloride, int prodQuantity, int reqProdQuantity, int stockDuration)
+							   float chemicalCombinationChloride, int prodQuantity, int reqProdQuantity, int stockDuration)
 {
 	if (productCount < maxMemberCount)
 	{
