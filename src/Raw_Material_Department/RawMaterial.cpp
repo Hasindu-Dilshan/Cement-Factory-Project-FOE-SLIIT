@@ -3,7 +3,7 @@
 #include <iomanip>
 #include <sstream>
 
-#include "Raw_Material.hpp"
+#include "RawMaterial.hpp"
 
 Material *materialArray[maxMemberCount];
 

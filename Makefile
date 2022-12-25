@@ -1,32 +1,32 @@
-output.o: src/common/Department.o src/End_Production_Department/End_Production.o src/End_Production_Department/Product.o src/Raw_Material_Department/Raw_Material.o src/Raw_Material_Department/Material.o src/Transport_Department/Transport.o src/Transport_Department/Transferable.o src/Worker_Statement_Department/Worker_Statement.o src/Worker_Statement_Department/Worker.o test/main.o
+output.o: src/common/Department.o src/end_production_department/EndProduction.o src/end_production_department/Product.o src/raw_material_department/RawMaterial.o src/raw_material_department/Material.o src/transport_department/Transport.o src/transport_department/Transferable.o src/worker_statement_department/WorkerStatement.o src/worker_statement_department/Worker.o test/main.o
 	g++ src/*/*.o test/main.o -o test/main
 
 Department.o: src/common/Department.cpp
 	g++ -c src/common/Department.cpp
 
-End_Production.o: src/End_Production_Department/End_Production.cpp
-	g++ -c src/End_Production_Department/End_Production.cpp
+EndProduction.o: src/end_production_department/EndProduction.cpp
+	g++ -c src/end_production_department/EndProduction.cpp
 
-Product.o:  src/End_Production_Department/Product.cpp
-	g++ -c src/End_Production_Department/Product.cpp
+Product.o:  src/end_production_department/Product.cpp
+	g++ -c src/end_production_department/Product.cpp
 
-Raw_Material.o:  src/Raw_Material_Department/Raw_Material.cpp
-	g++ -c src/Raw_Material_Department/Raw_Material.cpp
+RawMaterial.o:  src/raw_material_department/RawMaterial.cpp
+	g++ -c src/raw_material_department/RawMaterial.cpp
 
-Material.o:  src/Raw_Material_Department/Material.cpp
-	g++ -c src/Raw_Material_Department/Material.cpp
+Material.o:  src/raw_material_department/Material.cpp
+	g++ -c src/raw_material_department/Material.cpp
 
-Transport.o: src/Transport_Department/Transport.cpp
-	g++ -c src/Transport_Department/Transport.cpp
+Transport.o: src/transport_department/Transport.cpp
+	g++ -c src/transport_department/Transport.cpp
 
-Transferable.o: src/Transport_Department/Transferable.cpp
-	g++ -c src/Transport_Department/Transferable.cpp
+Transferable.o: src/transport_department/Transferable.cpp
+	g++ -c src/transport_department/Transferable.cpp
 
-Worker_Statement.o: src/Worker_Statement_Department/Worker_Statement.cpp
-	g++ -c src/Worker_Statement_Department/Worker_Statement.cpp
+WorkerStatement.o: src/worker_statement_department/WorkerStatement.cpp
+	g++ -c src/worker_statement_department/WorkerStatement.cpp
 
-Worker.o: src/Worker_Statement_Department/Worker.cpp
-	g++ -c src/Worker_Statement_Department/Worker.cpp
+Worker.o: src/worker_statement_department/Worker.cpp
+	g++ -c src/worker_statement_department/Worker.cpp
 
 main.o: test/main.cpp
 	g++ -c test/main.cpp

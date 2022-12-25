@@ -3,7 +3,7 @@
 #include <iomanip>
 #include <sstream>
 
-#include "End_Production.hpp"
+#include "EndProduction.hpp"
 
 Product *productArray[maxMemberCount];
 
