@@ -8,26 +8,26 @@
 Product *productArray[maxMemberCount];
 
 // Initialize product count
-int End_Production::productCount = 0;
+int EndProduction::productCount = 0;
 
 // Destructor
-End_Production::~End_Production()
+EndProduction::~EndProduction()
 {
 	// Super class destructor is sufficient
 }
 
 // Increment object count after each object creation
-void End_Production::countProduct()
+void EndProduction::countProduct()
 {
-	End_Production::productCount++;
+	EndProduction::productCount++;
 }
 
-int End_Production::getProductCount()
+int EndProduction::getProductCount()
 {
 	return productCount;
 }
 
-void End_Production::addProduct(std::string productType, float cost, float price, float chemicalCombinationSo3,
+void EndProduction::addProduct(std::string productType, float cost, float price, float chemicalCombinationSo3,
 								float chemicalCombinationChloride, int prodQuantity, int reqProdQuantity, int stockDuration)
 {
 	if (productCount < maxMemberCount)
@@ -43,13 +43,13 @@ void End_Production::addProduct(std::string productType, float cost, float price
 	}
 }
 
-void End_Production::removeProduct(int productID)
+void EndProduction::removeProduct(int productID)
 {
 	delete productArray[productID];
 	productArray[productID] = nullptr;
 }
 
-void End_Production::getProduct(int productID)
+void EndProduction::getProduct(int productID)
 {
 	if (productArray[productID] != nullptr)
 	{
@@ -64,7 +64,7 @@ void End_Production::getProduct(int productID)
 	}
 }
 
-const std::string End_Production::toString()
+const std::string EndProduction::toString()
 {
 	std::ostringstream all_buffer;
 
@@ -78,7 +78,7 @@ const std::string End_Production::toString()
 
 // const(1) : Make string immutable during return mechanism
 // const(2) : Read-only access to class's data members
-const std::string End_Production::toString(int productID) const
+const std::string EndProduction::toString(int productID) const
 {
 	return productArray[productID]->toString();
 }

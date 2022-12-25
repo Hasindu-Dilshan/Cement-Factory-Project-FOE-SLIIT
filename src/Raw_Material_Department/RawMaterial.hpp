@@ -5,16 +5,16 @@
 #include "../common/Department.hpp"
 #include "Material.hpp"
 
-class Raw_Material : public Department
+class RawMaterial : public Department
 {
 private:
 	Material *materials;
 	static int materialCount;
 
 public:
-	Raw_Material() : Department("Raw Materials"){};
+	RawMaterial() : Department("Raw Materials"){};
 
-	~Raw_Material();
+	~RawMaterial();
 
 	void countMaterial();
 	static int getMaterialCount();

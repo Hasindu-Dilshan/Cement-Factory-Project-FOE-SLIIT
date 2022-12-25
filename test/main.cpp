@@ -9,24 +9,24 @@
 
 /* Function prototypes */
 std::string decorate(std::string decorator, bool start, std::string text);
-void read_input(std::ifstream &inputFileStream, End_Production &endProductionDepartment, Raw_Material &rawMaterialDepartment, 
-                Transport &transportDepartment, Worker_Statement &workerStatementDepartment);
-void read_department(std::vector<std::vector<std::string>> &sub_string_lines, End_Production &endProductionDepartment);
-void read_department(std::vector<std::vector<std::string>> &sub_string_lines, Raw_Material &rawMaterialDepartment);
-void read_department(std::vector<std::vector<std::string>> &sub_string_lines, Transport &transportDepartment);
-void read_department(std::vector<std::vector<std::string>> &sub_string_lines, Worker_Statement &workerStatementDepartment);
+void readInput(std::ifstream &inputFileStream, EndProduction &endProductionDepartment, RawMaterial &rawMaterialDepartment, 
+                Transport &transportDepartment, WorkerStatement &workerStatementDepartment);
+void readDepartment(std::vector<std::vector<std::string>> &sub_string_lines, EndProduction &endProductionDepartment);
+void readDepartment(std::vector<std::vector<std::string>> &sub_string_lines, RawMaterial &rawMaterialDepartment);
+void readDepartment(std::vector<std::vector<std::string>> &sub_string_lines, Transport &transportDepartment);
+void readDepartment(std::vector<std::vector<std::string>> &sub_string_lines, WorkerStatement &workerStatementDepartment);
 
 int main()
 {
     std::ifstream inputFileStream("test/input.txt");
 
     /* Make Department Objects */
-    End_Production endProductionDepartment;
-    Raw_Material rawMaterialDepartment;
+    EndProduction endProductionDepartment;
+    RawMaterial rawMaterialDepartment;
     Transport transportDepartment;
-    Worker_Statement workerStatementDepartment;
+    WorkerStatement workerStatementDepartment;
 
-    read_input(inputFileStream, endProductionDepartment, rawMaterialDepartment, transportDepartment, workerStatementDepartment);
+    readInput(inputFileStream, endProductionDepartment, rawMaterialDepartment, transportDepartment, workerStatementDepartment);
 
     const std::string decorator = "--------------------";
 
@@ -99,8 +99,8 @@ std::string decorate(std::string decorator, bool start, std::string text)
     }
 }
 
-void read_input(std::ifstream &inputFileStream, End_Production &endProductionDepartment, Raw_Material &rawMaterialDepartment, 
-                Transport &transportDepartment, Worker_Statement &workerStatementDepartment)
+void readInput(std::ifstream &inputFileStream, EndProduction &endProductionDepartment, RawMaterial &rawMaterialDepartment, 
+                Transport &transportDepartment, WorkerStatement &workerStatementDepartment)
 {
     std::string line;
 
@@ -145,24 +145,24 @@ void read_input(std::ifstream &inputFileStream, End_Production &endProductionDep
 
         if (departmentName == "End Production")
         {
-            read_department(sub_string_lines, endProductionDepartment);
+            readDepartment(sub_string_lines, endProductionDepartment);
         }
         if (departmentName == "Raw Material")
         {
-            read_department(sub_string_lines, rawMaterialDepartment);
+            readDepartment(sub_string_lines, rawMaterialDepartment);
         }
         if (departmentName == "Transport")
         {
-            read_department(sub_string_lines, transportDepartment);
+            readDepartment(sub_string_lines, transportDepartment);
         }
         if (departmentName == "Worker Statement")
         {
-            read_department(sub_string_lines, workerStatementDepartment);
+            readDepartment(sub_string_lines, workerStatementDepartment);
         }
     }
 }
 
-void read_department(std::vector<std::vector<std::string>> &sub_string_lines, End_Production &endProductionDepartment)
+void readDepartment(std::vector<std::vector<std::string>> &sub_string_lines, EndProduction &endProductionDepartment)
 {
     for (std::vector<std::string> sub_string_line : sub_string_lines)
     {
@@ -179,7 +179,7 @@ void read_department(std::vector<std::vector<std::string>> &sub_string_lines, En
     }
 }
 
-void read_department(std::vector<std::vector<std::string>> &sub_string_lines, Raw_Material &rawMaterialDepartment)
+void readDepartment(std::vector<std::vector<std::string>> &sub_string_lines, RawMaterial &rawMaterialDepartment)
 {
     for (std::vector<std::string> sub_string_line : sub_string_lines)
     {
@@ -195,7 +195,7 @@ void read_department(std::vector<std::vector<std::string>> &sub_string_lines, Ra
         rawMaterialDepartment.addMaterial(materialType, materialQulaity, cost, suppliedQuantity, safetyStock, availableStock, orderedStock, stockDuration);
     }
 }
-void read_department(std::vector<std::vector<std::string>> &sub_string_lines, Transport &transportDepartment)
+void readDepartment(std::vector<std::vector<std::string>> &sub_string_lines, Transport &transportDepartment)
 {
     for (std::vector<std::string> sub_string_line : sub_string_lines)
     {
@@ -207,7 +207,7 @@ void read_department(std::vector<std::vector<std::string>> &sub_string_lines, Tr
         transportDepartment.addTransferable(transferableType, fuelIssued, averageFuelConsumption, kilometersDone);
     }
 }
-void read_department(std::vector<std::vector<std::string>> &sub_string_lines, Worker_Statement &workerStatementDepartment)
+void readDepartment(std::vector<std::vector<std::string>> &sub_string_lines, WorkerStatement &workerStatementDepartment)
 {
     for (std::vector<std::string> sub_string_line : sub_string_lines)
     {

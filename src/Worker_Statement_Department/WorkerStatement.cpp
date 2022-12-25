@@ -10,26 +10,26 @@ using namespace std;
 Worker *workerArray[maxMemberCount];
 
 // Initialize product count
-int Worker_Statement::workerCount = 0;
+int WorkerStatement::workerCount = 0;
 
 // Destructor
-Worker_Statement::~Worker_Statement()
+WorkerStatement::~WorkerStatement()
 {
 	// Super class destructor is sufficient
 }
 
 // Increment object count after each object creation
-void Worker_Statement::countWorker()
+void WorkerStatement::countWorker()
 {
-	Worker_Statement::workerCount++;
+	WorkerStatement::workerCount++;
 }
 
-int Worker_Statement::getWorkerCount()
+int WorkerStatement::getWorkerCount()
 {
 	return workerCount;
 }
 
-void Worker_Statement::addWorker(std::string workerName, std::string workerType, int workingHoursInTheMonth, int fixWorkingHoursPerDay, 
+void WorkerStatement::addWorker(std::string workerName, std::string workerType, int workingHoursInTheMonth, int fixWorkingHoursPerDay, 
 								int paymentForADay, int overtimeHours, int overtimePaymentPerHour)
 {
 
@@ -46,13 +46,13 @@ void Worker_Statement::addWorker(std::string workerName, std::string workerType,
 	}
 }
 
-void Worker_Statement::removeWorker(int workerID)
+void WorkerStatement::removeWorker(int workerID)
 {
 	delete workerArray[workerID];
 	workerArray[workerID] = nullptr;
 }
 
-void Worker_Statement::getWorker(int workerID)
+void WorkerStatement::getWorker(int workerID)
 {
 	if (workerArray[workerID] != nullptr)
 	{
@@ -68,7 +68,7 @@ void Worker_Statement::getWorker(int workerID)
 	}
 }
 
-const std::string Worker_Statement::toString()
+const std::string WorkerStatement::toString()
 {
 	std::ostringstream all_buffer;
 
@@ -82,7 +82,7 @@ const std::string Worker_Statement::toString()
 
 // const(1) : Make string immutable during return mechanism
 // const(2) : Read-only access to class's data members
-const std::string Worker_Statement::toString(int workerID) const
+const std::string WorkerStatement::toString(int workerID) const
 {
 	return workerArray[workerID]->toString();
 }

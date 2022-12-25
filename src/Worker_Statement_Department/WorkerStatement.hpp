@@ -5,15 +5,15 @@
 #include "../common/Department.hpp"
 #include "Worker.hpp"
 
-class Worker_Statement : public Department{
+class WorkerStatement : public Department{
 private:
 	Worker* workers;
 	static int workerCount;
 
 public:
-	Worker_Statement() : Department("Worker Statement") {};
+	WorkerStatement() : Department("Worker Statement") {};
 		 
-	~Worker_Statement();
+	~WorkerStatement();
 
 	void countWorker();
 	static int getWorkerCount();

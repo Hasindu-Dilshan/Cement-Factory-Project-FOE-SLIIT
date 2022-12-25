@@ -7,24 +7,24 @@
 
 Material *materialArray[maxMemberCount];
 
-int Raw_Material::materialCount = 0;
+int RawMaterial::materialCount = 0;
 
-Raw_Material::~Raw_Material()
+RawMaterial::~RawMaterial()
 {
 	// Super class destructor is sufficient
 }
 
-void Raw_Material::countMaterial()
+void RawMaterial::countMaterial()
 {
 	materialCount++;
 }
 
-int Raw_Material::getMaterialCount()
+int RawMaterial::getMaterialCount()
 {
 	return materialCount;
 }
 
-void Raw_Material::addMaterial(std::string materialType, std::string materialQulaity, long cost, int suppliedQuantity,
+void RawMaterial::addMaterial(std::string materialType, std::string materialQulaity, long cost, int suppliedQuantity,
 								int safetyStock, int availableStock, int orderedStock, int stockDuration)
 {
 	if (materialCount < maxMemberCount)
@@ -38,13 +38,13 @@ void Raw_Material::addMaterial(std::string materialType, std::string materialQul
 	}
 }
 
-void Raw_Material::removeMaterial(int materialID)
+void RawMaterial::removeMaterial(int materialID)
 {
 	delete materialArray[materialID];
 	materialArray[materialID] = nullptr;
 }
 
-void Raw_Material::getMaterial(int materialID)
+void RawMaterial::getMaterial(int materialID)
 {
 	if (materialArray[materialID] != nullptr)
 	{
@@ -59,7 +59,7 @@ void Raw_Material::getMaterial(int materialID)
 	}
 }
 
-const std::string Raw_Material::toString()
+const std::string RawMaterial::toString()
 {
 	std::ostringstream all_buffer;
 
@@ -73,7 +73,7 @@ const std::string Raw_Material::toString()
 
 // const(1) : Make string immutable during return mechanism
 // const(2) : Read-only access to class's data members
-const std::string Raw_Material::toString(int materialID) const
+const std::string RawMaterial::toString(int materialID) const
 {
 	return materialArray[materialID]->toString();
 }

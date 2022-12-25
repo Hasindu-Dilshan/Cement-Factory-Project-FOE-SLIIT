@@ -5,16 +5,16 @@
 #include "../common/Department.hpp"
 #include "Product.hpp"
 
-class End_Production : public Department
+class EndProduction : public Department
 {
 private:
 	Product *products;
 	static int productCount;
 
 public:
-	End_Production() : Department("End Production"){};
+	EndProduction() : Department("End Production"){};
 
-	~End_Production();
+	~EndProduction();
 
 	void countProduct();
 	static int getProductCount();
