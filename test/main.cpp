@@ -9,8 +9,13 @@
 
 /* Function prototypes */
 std::string decorate(std::string decorator, bool start, std::string text);
-void readInput(std::ifstream &inputFileStream, EndProduction &endProductionDepartment, RawMaterial &rawMaterialDepartment, 
-                Transport &transportDepartment, WorkerStatement &workerStatementDepartment);
+void readInput(std::ifstream &inputFileStream, EndProduction &endProductionDepartment, RawMaterial &rawMaterialDepartment,
+               Transport &transportDepartment, WorkerStatement &workerStatementDepartment);
+void readInput(EndProduction &endProductionDepartment);
+void readInput(RawMaterial &rawMaterialDepartment);
+void readInput(Transport &transportDepartment);
+void readInput(WorkerStatement &workerStatementDepartment);
+
 void readDepartment(std::vector<std::vector<std::string>> &subStringLines, EndProduction &endProductionDepartment);
 void readDepartment(std::vector<std::vector<std::string>> &subStringLines, RawMaterial &rawMaterialDepartment);
 void readDepartment(std::vector<std::vector<std::string>> &subStringLines, Transport &transportDepartment);
@@ -18,7 +23,7 @@ void readDepartment(std::vector<std::vector<std::string>> &subStringLines, Worke
 
 int main()
 {
-    std::ifstream inputFileStream("test/input.txt");
+    // std::ifstream inputFileStream("test/input.txt");
 
     /* Make Department Objects */
     EndProduction endProductionDepartment;
@@ -26,7 +31,12 @@ int main()
     Transport transportDepartment;
     WorkerStatement workerStatementDepartment;
 
-    readInput(inputFileStream, endProductionDepartment, rawMaterialDepartment, transportDepartment, workerStatementDepartment);
+    // readInput(inputFileStream, endProductionDepartment, rawMaterialDepartment, transportDepartment, workerStatementDepartment);
+
+    readInput(endProductionDepartment);
+    readInput(rawMaterialDepartment);
+    readInput(transportDepartment);
+    readInput(workerStatementDepartment);
 
     const std::string decorator = "--------------------";
 
@@ -34,7 +44,7 @@ int main()
     std::cout << decorate(decorator, true, endProductionDepartment.getName());
 
     endProductionDepartment.getProduct(0);
-    endProductionDepartment.getProduct(1);
+    // endProductionDepartment.getProduct(1);
 
     endProductionDepartment.removeProduct(0);
 
@@ -46,7 +56,7 @@ int main()
     std::cout << decorate(decorator, true, rawMaterialDepartment.getName());
 
     rawMaterialDepartment.getMaterial(0);
-    rawMaterialDepartment.getMaterial(1);
+    // rawMaterialDepartment.getMaterial(1);
 
     rawMaterialDepartment.removeMaterial(0);
 
@@ -58,7 +68,7 @@ int main()
     std::cout << decorate(decorator, true, transportDepartment.getName());
 
     transportDepartment.getTransferable(0);
-    transportDepartment.getTransferable(1);
+    // transportDepartment.getTransferable(1);
 
     transportDepartment.removeTransferable(0);
 
@@ -70,7 +80,7 @@ int main()
     std::cout << decorate(decorator, true, workerStatementDepartment.getName());
 
     workerStatementDepartment.getWorker(0);
-    workerStatementDepartment.getWorker(1);
+    // workerStatementDepartment.getWorker(1);
 
     workerStatementDepartment.removeWorker(0);
 
@@ -99,8 +109,8 @@ std::string decorate(std::string decorator, bool start, std::string text)
     }
 }
 
-void readInput(std::ifstream &inputFileStream, EndProduction &endProductionDepartment, RawMaterial &rawMaterialDepartment, 
-                Transport &transportDepartment, WorkerStatement &workerStatementDepartment)
+void readInput(std::ifstream &inputFileStream, EndProduction &endProductionDepartment, RawMaterial &rawMaterialDepartment,
+               Transport &transportDepartment, WorkerStatement &workerStatementDepartment)
 {
     std::string line;
 
@@ -128,7 +138,7 @@ void readInput(std::ifstream &inputFileStream, EndProduction &endProductionDepar
                 break;
             }
 
-            std::vector<std::string> sub_strings;
+            std::vector<std::string> subStrings;
             std::istringstream line_stream(line);
 
             while (line_stream.good())
@@ -137,10 +147,10 @@ void readInput(std::ifstream &inputFileStream, EndProduction &endProductionDepar
 
                 getline(line_stream, substr, ',');
                 substr = std::regex_replace(substr, std::regex("^ +| +$|( ) +"), "$1");
-                sub_strings.push_back(substr);
+                subStrings.push_back(substr);
             }
 
-            subStringLines.push_back(sub_strings);
+            subStringLines.push_back(subStrings);
         }
 
         if (departmentName == "End Production")
@@ -160,6 +170,205 @@ void readInput(std::ifstream &inputFileStream, EndProduction &endProductionDepar
             readDepartment(subStringLines, workerStatementDepartment);
         }
     }
+}
+
+void readInput(EndProduction &endProductionDepartment)
+{
+    std::string productType;
+    float cost;
+    float price;
+    float chemicalCombinationSo3;
+    float chemicalCombinationChloride;
+    int prodQuantity;
+    int reqProdQuantity;
+    int stockDuration;
+
+    std::vector<std::vector<std::string>> subStringLines;
+    std::vector<std::string> subStrings;
+
+    std::cout << "=== Enter Product Details ===" << std::endl;
+
+    // std::cin.ignore();
+
+    std::cout << "Enter productType: ";
+    std::getline(std::cin, productType);
+
+    std::cout << "Enter cost: ";
+    std::cin >> cost;
+
+    std::cout << "Enter price: ";
+    std::cin >> price;
+
+    std::cout << "Enter chemicalCombinationSo3: ";
+    std::cin >> chemicalCombinationSo3;
+
+    std::cout << "Enter chemicalCombinationChloride: ";
+    std::cin >> chemicalCombinationChloride;
+
+    std::cout << "Enter prodQuantity: ";
+    std::cin >> prodQuantity;
+
+    std::cout << "Enter reqProdQuantity: ";
+    std::cin >> reqProdQuantity;
+
+    std::cout << "Enter stockDuration: ";
+    std::cin >> stockDuration;
+
+    subStrings.push_back(productType);
+    subStrings.push_back(std::to_string(cost));
+    subStrings.push_back(std::to_string(price));
+    subStrings.push_back(std::to_string(chemicalCombinationSo3));
+    subStrings.push_back(std::to_string(chemicalCombinationChloride));
+    subStrings.push_back(std::to_string(prodQuantity));
+    subStrings.push_back(std::to_string(reqProdQuantity));
+    subStrings.push_back(std::to_string(stockDuration));
+
+    subStringLines.push_back(subStrings);
+
+    readDepartment(subStringLines, endProductionDepartment);
+}
+
+void readInput(RawMaterial &rawMaterialDepartment)
+{
+    std::string materialType;
+    std::string materialQulaity;
+    long cost;
+    int suppliedQuantity;
+    int safetyStock;
+    int availableStock;
+    int orderedStock;
+    int stockDuration;
+
+    std::vector<std::vector<std::string>> subStringLines;
+    std::vector<std::string> subStrings;
+
+    std::cout << "=== Enter Material Details ===" << std::endl;
+
+    std::cin.ignore();
+
+    std::cout << "Enter materialType: ";
+    std::getline(std::cin, materialType);
+
+    std::cout << "Enter materialQulaity: ";
+    std::getline(std::cin, materialQulaity);
+
+    std::cout << "Enter cost: ";
+    std::cin >> cost;
+
+    std::cout << "Enter suppliedQuantity: ";
+    std::cin >> suppliedQuantity;
+
+    std::cout << "Enter safetyStock: ";
+    std::cin >> safetyStock;
+
+    std::cout << "Enter availableStock: ";
+    std::cin >> availableStock;
+
+    std::cout << "Enter orderedStock: ";
+    std::cin >> orderedStock;
+
+    std::cout << "Enter stockDuration: ";
+    std::cin >> stockDuration;
+
+    subStrings.push_back(materialType);
+    subStrings.push_back(materialQulaity);
+    subStrings.push_back(std::to_string(cost));
+    subStrings.push_back(std::to_string(suppliedQuantity));
+    subStrings.push_back(std::to_string(safetyStock));
+    subStrings.push_back(std::to_string(availableStock));
+    subStrings.push_back(std::to_string(orderedStock));
+    subStrings.push_back(std::to_string(stockDuration));
+
+    subStringLines.push_back(subStrings);
+
+    readDepartment(subStringLines, rawMaterialDepartment);
+}
+
+void readInput(Transport &transportDepartment)
+{
+    std::string transferableType;
+    float fuelIssued;
+    float averageFuelConsumption;
+    float kilometersDone;
+
+    std::vector<std::vector<std::string>> subStringLines;
+    std::vector<std::string> subStrings;
+
+    std::cout << "=== Enter Transferable Details ===" << std::endl;
+
+    std::cin.ignore();
+
+    std::cout << "Enter transferableType: ";
+    std::getline(std::cin, transferableType);
+
+    std::cout << "Enter fuelIssued: ";
+    std::cin >> fuelIssued;
+
+    std::cout << "Enter averageFuelConsumption: ";
+    std::cin >> averageFuelConsumption;
+
+    std::cout << "Enter kilometersDone: ";
+    std::cin >> kilometersDone;
+
+    subStrings.push_back(transferableType);
+    subStrings.push_back(std::to_string(fuelIssued));
+    subStrings.push_back(std::to_string(averageFuelConsumption));
+    subStrings.push_back(std::to_string(kilometersDone));
+
+    subStringLines.push_back(subStrings);
+
+    readDepartment(subStringLines, transportDepartment);
+}
+
+void readInput(WorkerStatement &workerStatementDepartment)
+{
+    std::string workerName;
+    std::string workerType;
+    int workingHoursInTheMonth;
+    int fixWorkingHoursPerDay;
+    int paymentForADay;
+    int overtimeHours;
+    int overtimePaymentPerHour;
+
+    std::vector<std::vector<std::string>> subStringLines;
+    std::vector<std::string> subStrings;
+
+    std::cout << "=== Enter Worker Details ===" << std::endl;
+
+    std::cin.ignore();
+
+    std::cout << "Enter workerName: ";
+    std::getline(std::cin, workerName);
+
+    std::cout << "Enter workerType: ";
+    std::getline(std::cin, workerType);
+
+    std::cout << "Enter workingHoursInTheMonth: ";
+    std::cin >> workingHoursInTheMonth;
+
+    std::cout << "Enter fixWorkingHoursPerDay: ";
+    std::cin >> fixWorkingHoursPerDay;
+
+    std::cout << "Enter paymentForADay: ";
+    std::cin >> paymentForADay;
+
+    std::cout << "Enter overtimeHours: ";
+    std::cin >> overtimeHours;
+
+    std::cout << "Enter overtimePaymentPerHour: ";
+    std::cin >> overtimePaymentPerHour;
+
+    subStrings.push_back(workerName);
+    subStrings.push_back(workerType);
+    subStrings.push_back(std::to_string(workingHoursInTheMonth));
+    subStrings.push_back(std::to_string(fixWorkingHoursPerDay));
+    subStrings.push_back(std::to_string(paymentForADay));
+    subStrings.push_back(std::to_string(overtimeHours));
+    subStrings.push_back(std::to_string(overtimePaymentPerHour));
+
+    subStringLines.push_back(subStrings);
+
+    readDepartment(subStringLines, workerStatementDepartment);
 }
 
 void readDepartment(std::vector<std::vector<std::string>> &subStringLines, EndProduction &endProductionDepartment)
