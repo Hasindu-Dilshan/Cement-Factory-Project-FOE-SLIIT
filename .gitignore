@@ -34,3 +34,6 @@
 # Directories
 .vscode
 .vscode/settings.json
+
+# Document files
+.docx
