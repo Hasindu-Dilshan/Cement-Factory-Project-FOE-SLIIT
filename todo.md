@@ -11,3 +11,5 @@
 ### Make an input file validator
 
 ### Keep only possible type conversions like (float) -> if impossible, change var type
+
+This is a test line
