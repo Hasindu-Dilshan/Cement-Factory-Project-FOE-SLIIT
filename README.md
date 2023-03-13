@@ -1,6 +1,8 @@
 # ME 4550 : Object Oriented Programming
 
-ME4550 - Sustainability Management of INSEE Cement Factory
+### ME4550 - Sustainability Management of INSEE Cement Factory
+
+<img src="img/logo.png" alt="INSEE logo">
 
 ```bash 
 git clone https://github.com/Hasindu-Dilshan/Cement-Factory-Project-FOE-SLIIT.git
